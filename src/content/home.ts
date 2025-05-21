@@ -1,7 +1,8 @@
 export const homeContent = {
   hero: {
-    slogan: "Giảm cân an toàn, không lo tăng lại",
-    description: "Hành trình đến vóc dáng mơ ước cùng Dung Lê Giảm Cân",
+    slogan: "Giảm Cân An Toàn, Hiệu Quả Tức Thì - Không Lo Tăng Cân Trở Lại",
+    description:
+      "Hành trình đến vóc dáng mơ ước cùng Dung Lê Giảm Cân - Cam kết giảm 3-5kg/tháng với sản phẩm chính hãng từ Thái Lan. An toàn - Hiệu quả - Bền vững",
     cta: "Mua ngay",
     banners: [
       "/images/banners/banner-01.jpg",
