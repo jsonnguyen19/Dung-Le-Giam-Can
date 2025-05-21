@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes, forwardRef } from "react";
+import { ButtonHTMLAttributes, forwardRef, ReactNode } from "react";
 import { HTMLMotionProps } from "framer-motion";
 import { AnimatedButton } from "@/components/motion/WithAnimation";
 
@@ -6,6 +6,7 @@ interface ButtonProps extends Omit<HTMLMotionProps<"button">, "ref"> {
   variant?: "primary" | "secondary" | "outline";
   size?: "sm" | "md" | "lg";
   isLoading?: boolean;
+  children?: ReactNode;
 }
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
