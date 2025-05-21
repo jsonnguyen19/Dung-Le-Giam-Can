@@ -21,10 +21,13 @@ export interface StoreProviderProps {
 }
 
 export function StoreProvider({ children }: StoreProviderProps) {
+  const store = useCartStore();
   const storeRef = useRef<CartStore>();
+
   if (!storeRef.current) {
-    storeRef.current = useCartStore();
+    storeRef.current = store;
   }
+
   return (
     <StoreContext.Provider value={storeRef.current}>
       {children}

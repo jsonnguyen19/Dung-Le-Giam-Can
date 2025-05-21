@@ -15,7 +15,8 @@ const navigation = [
 ];
 
 export const Header = () => {
-  const totalItems = useCartStore((state) => state.getTotalItems());
+  const items = useCartStore((state) => state.items);
+  const totalItems = items.reduce((total, item) => total + item.quantity, 0);
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm">
