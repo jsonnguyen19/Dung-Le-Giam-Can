@@ -1,9 +1,22 @@
 import "./globals.css";
 import type { Metadata } from "next";
+import { Header, Footer } from "@/components/common/Layout";
+import { Inter } from "next/font/google";
+import { StoreProvider } from "@/store/provider";
+
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Next.js App",
-  description: "Next.js 14 with Tailwind CSS",
+  title: "Dung Lê Giảm Cân - Sản phẩm giảm cân từ Thái Lan",
+  description:
+    "Dung Lê Giảm Cân cung cấp các sản phẩm giảm cân an toàn, hiệu quả từ Thái Lan. Giảm cân không yoyo, không tăng cân lại.",
+  keywords: [
+    "giảm cân",
+    "giảm cân thái lan",
+    "dung lê",
+    "giảm cân an toàn",
+    "trà giảm cân",
+  ],
 };
 
 export default function RootLayout({
@@ -12,8 +25,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body>{children}</body>
+    <html lang="vi" className={inter.className}>
+      <body className="min-h-screen flex flex-col">
+        <StoreProvider>
+          <Header />
+          <main className="flex-grow pt-16">{children}</main>
+          <Footer />
+        </StoreProvider>
+      </body>
     </html>
   );
 }
