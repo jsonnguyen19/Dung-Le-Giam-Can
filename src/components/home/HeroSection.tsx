@@ -36,21 +36,21 @@ export const HeroSection = () => {
                 alt={`Banner ${index + 1}`}
                 fill
                 priority={index === 0}
-                className="object-cover"
+                className="object-cover object-center"
               />
-              <div className="absolute inset-0 bg-black/40" />
+              <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/70" />
             </div>
           </SwiperSlide>
         ))}
       </Swiper>
 
       <div className="absolute inset-0 z-10 flex items-center justify-center">
-        <div className="container px-4 text-center text-white">
+        <div className="container mx-auto px-4 md:px-6 text-center text-white">
           <AnimatedHeading
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-4xl md:text-6xl font-bold mb-6"
+            className="text-3xl sm:text-4xl md:text-6xl font-bold mb-4 md:mb-6"
           >
             {homeContent.hero.slogan}
           </AnimatedHeading>
@@ -58,7 +58,7 @@ export const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto"
+            className="text-lg sm:text-xl md:text-2xl mb-6 md:mb-8 max-w-2xl mx-auto"
           >
             {homeContent.hero.description}
           </AnimatedParagraph>
@@ -74,6 +74,7 @@ export const HeroSection = () => {
                   .getElementById("order")
                   ?.scrollIntoView({ behavior: "smooth" });
               }}
+              className="px-6 py-3 text-lg"
             >
               {homeContent.hero.cta} ✨
             </Button>
