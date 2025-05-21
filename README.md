@@ -15,16 +15,19 @@ Website giảm cân của Dung Le được xây dựng bằng Next.js 14 và Tai
 Yêu cầu: Node.js 18+ và npm.
 
 1. Clone dự án:
+
 ```bash
 git clone https://github.com/jsonnguyen19/Dung-Le-Giam-Can.git
 ```
 
 2. Cài đặt dependencies:
+
 ```bash
 npm install
 ```
 
 3. Chạy môi trường development:
+
 ```bash
 npm run dev
 ```
