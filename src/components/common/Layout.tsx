@@ -22,7 +22,7 @@ export const Header = () => {
       <nav className="container mx-auto px-4 py-4 flex items-center justify-between">
         <Link href="/" className="flex items-center space-x-2">
           <Image
-            src="/images/logo/logo.png"
+            src="/images/logo/logo.jpg"
             alt="Dung Lê Giảm Cân"
             width={40}
             height={40}
