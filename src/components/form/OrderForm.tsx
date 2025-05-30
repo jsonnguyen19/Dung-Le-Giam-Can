@@ -240,7 +240,7 @@ export const OrderForm = () => {
         await navigator.clipboard.writeText(generatedOrderMessage);
         setIsCopied(true);
 
-        toast.success("✅ Đã copy nội dung đơn hàng thành công! 📋", {
+        toast.success("Đã copy nội dung đơn hàng thành công! 📋", {
           duration: 3000,
           style: {
             background: "#f0fdf4",
@@ -271,7 +271,7 @@ export const OrderForm = () => {
 
         if (successful) {
           setIsCopied(true);
-          toast.success("✅ Đã copy nội dung đơn hàng thành công! 📋", {
+          toast.success("Đã copy nội dung đơn hàng thành công! 📋", {
             duration: 3000,
             style: {
               background: "#f0fdf4",
@@ -326,19 +326,19 @@ export const OrderForm = () => {
                   onClick={() => {
                     setIsCopied(true);
                     toast.dismiss(t.id);
-                    toast.success("✅ Đã xác nhận copy thành công!", {
+                    toast.success("Đã xác nhận copy thành công!", {
                       duration: 2000,
                     });
                   }}
                   className="bg-green-500 text-white px-3 py-1 rounded text-sm hover:bg-green-600"
                 >
-                  ✅ Đã copy
+                  Đã copy
                 </button>
                 <button
                   onClick={() => toast.dismiss(t.id)}
                   className="bg-gray-500 text-white px-3 py-1 rounded text-sm hover:bg-gray-600"
                 >
-                  ❌ Chưa copy
+                  Chưa copy
                 </button>
               </div>
             </div>
@@ -360,24 +360,21 @@ export const OrderForm = () => {
   // Manual copy confirmation for mobile users
   const handleManualCopyConfirm = () => {
     setIsCopied(true);
-    toast.success(
-      "✅ Đã xác nhận copy thủ công! Bây giờ có thể gửi qua Zalo 🎉",
-      {
-        duration: 3000,
-        style: {
-          background: "#f0fdf4",
-          color: "#166534",
-          border: "1px solid #bbf7d0",
-          borderRadius: "12px",
-          fontSize: "14px",
-          padding: "12px 16px",
-        },
-        iconTheme: {
-          primary: "#10b981",
-          secondary: "#ffffff",
-        },
-      }
-    );
+    toast.success("Đã xác nhận copy thủ công! Bây giờ có thể gửi qua Zalo 🎉", {
+      duration: 3000,
+      style: {
+        background: "#f0fdf4",
+        color: "#166534",
+        border: "1px solid #bbf7d0",
+        borderRadius: "12px",
+        fontSize: "14px",
+        padding: "12px 16px",
+      },
+      iconTheme: {
+        primary: "#10b981",
+        secondary: "#ffffff",
+      },
+    });
   };
 
   const handleSendToZalo = () => {
@@ -497,7 +494,7 @@ export const OrderForm = () => {
             }`}
           >
             {isCopied ? <CheckCircle size={18} /> : <Copy size={18} />}
-            {isCopied ? "✅ Đã copy" : "📋 Copy nội dung"}
+            {isCopied ? "Đã copy" : "📋 Copy nội dung"}
           </Button>
 
           {!isCopied && (
@@ -507,7 +504,7 @@ export const OrderForm = () => {
               className="flex-1 flex items-center justify-center gap-2 transition-all duration-200 transform hover:scale-[1.02] hover:bg-green-50 hover:border-green-200 hover:text-green-600"
             >
               <CheckCircle size={18} />
-              📋 Đã copy thủ công
+              Đã copy thủ công
             </Button>
           )}
 
