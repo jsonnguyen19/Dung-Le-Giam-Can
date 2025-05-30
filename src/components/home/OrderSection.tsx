@@ -9,7 +9,7 @@ export const OrderSection = () => {
       subtitle="Điền thông tin của bạn để đặt hàng qua Zalo"
       className="bg-gray-50"
     >
-      <div className="max-w-2xl mx-auto">
+      <div className="max-w-7xl mx-auto px-4">
         <OrderForm />
       </div>
     </Section>

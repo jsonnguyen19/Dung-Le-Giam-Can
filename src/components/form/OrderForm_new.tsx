@@ -148,65 +148,60 @@ export const OrderForm = () => {
       </AnimatedDiv>
     );
   }
+
   return (
     <AnimatedDiv
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      className="bg-white rounded-lg shadow-lg overflow-hidden max-w-none"
+      className="bg-white rounded-lg shadow-lg overflow-hidden"
     >
-      <div className="xl:grid xl:grid-cols-5 lg:grid lg:grid-cols-3">
+      <div className="lg:grid lg:grid-cols-2 lg:gap-0">
         {/* Left side - Form */}
-        <div className="xl:col-span-3 lg:col-span-2 p-4 sm:p-6 lg:border-r border-gray-200">
-          <h2 className="text-xl sm:text-2xl font-bold text-gray-800 mb-4 sm:mb-6 flex items-center gap-2">
+        <div className="p-6 lg:border-r border-gray-200">
+          <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center gap-2">
             <ShoppingCart size={24} />
             Thông tin đặt hàng
           </h2>
 
-          <form
-            onSubmit={handleGenerateOrder}
-            className="space-y-4 sm:space-y-6"
-          >
-            {" "}
+          <form onSubmit={handleGenerateOrder} className="space-y-6">
             {/* Thông tin khách hàng */}
-            <div className="space-y-3 sm:space-y-4">
-              <h3 className="text-base sm:text-lg font-semibold text-gray-800 border-b pb-2">
+            <div className="space-y-4">
+              <h3 className="text-lg font-semibold text-gray-800 border-b pb-2">
                 Thông tin khách hàng
               </h3>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-                <div>
-                  <label
-                    htmlFor="name"
-                    className="block text-sm font-medium text-gray-700 mb-1"
-                  >
-                    Họ và tên
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    required
-                    value={formData.name}
-                    onChange={(e) => setFormData({ name: e.target.value })}
-                    className="w-full px-3 py-2 text-sm border border-gray-300 rounded-md shadow-sm focus:border-pink focus:ring-pink focus:ring-1"
-                  />
-                </div>
+              <div>
+                <label
+                  htmlFor="name"
+                  className="block text-sm font-medium text-gray-700 mb-1"
+                >
+                  Họ và tên
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  required
+                  value={formData.name}
+                  onChange={(e) => setFormData({ name: e.target.value })}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:border-pink focus:ring-pink focus:ring-1"
+                />
+              </div>
 
-                <div>
-                  <label
-                    htmlFor="phone"
-                    className="block text-sm font-medium text-gray-700 mb-1"
-                  >
-                    Số điện thoại
-                  </label>
-                  <input
-                    type="tel"
-                    id="phone"
-                    required
-                    value={formData.phone}
-                    onChange={(e) => setFormData({ phone: e.target.value })}
-                    className="w-full px-3 py-2 text-sm border border-gray-300 rounded-md shadow-sm focus:border-pink focus:ring-pink focus:ring-1"
-                  />
-                </div>
+              <div>
+                <label
+                  htmlFor="phone"
+                  className="block text-sm font-medium text-gray-700 mb-1"
+                >
+                  Số điện thoại
+                </label>
+                <input
+                  type="tel"
+                  id="phone"
+                  required
+                  value={formData.phone}
+                  onChange={(e) => setFormData({ phone: e.target.value })}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:border-pink focus:ring-pink focus:ring-1"
+                />
               </div>
 
               <div>
@@ -222,7 +217,7 @@ export const OrderForm = () => {
                   value={formData.address}
                   onChange={(e) => setFormData({ address: e.target.value })}
                   rows={3}
-                  className="w-full px-3 py-2 text-sm border border-gray-300 rounded-md shadow-sm focus:border-pink focus:ring-pink focus:ring-1"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:border-pink focus:ring-pink focus:ring-1"
                 />
               </div>
 
@@ -238,13 +233,14 @@ export const OrderForm = () => {
                   value={formData.note}
                   onChange={(e) => setFormData({ note: e.target.value })}
                   rows={2}
-                  className="w-full px-3 py-2 text-sm border border-gray-300 rounded-md shadow-sm focus:border-pink focus:ring-pink focus:ring-1"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:border-pink focus:ring-pink focus:ring-1"
                 />
               </div>
-            </div>{" "}
+            </div>
+
             {/* Thêm sản phẩm */}
-            <div className="space-y-3 sm:space-y-4">
-              <h3 className="text-base sm:text-lg font-semibold text-gray-800 border-b pb-2">
+            <div className="space-y-4">
+              <h3 className="text-lg font-semibold text-gray-800 border-b pb-2">
                 Chọn sản phẩm
               </h3>
 
@@ -252,7 +248,7 @@ export const OrderForm = () => {
                 <select
                   value={selectedProductId}
                   onChange={(e) => setSelectedProductId(e.target.value)}
-                  className="flex-1 px-3 py-2 text-sm border border-gray-300 rounded-md shadow-sm focus:border-pink focus:ring-pink focus:ring-1"
+                  className="flex-1 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:border-pink focus:ring-pink focus:ring-1"
                 >
                   <option value="">Chọn sản phẩm...</option>
                   {products.map((product) => (
@@ -266,7 +262,7 @@ export const OrderForm = () => {
                   onClick={handleAddProduct}
                   disabled={!selectedProductId}
                   size="sm"
-                  className="px-3 sm:px-4"
+                  className="px-4"
                 >
                   <Plus size={16} />
                 </Button>
@@ -281,7 +277,7 @@ export const OrderForm = () => {
                     );
                     return selectedProduct ? (
                       <div className="flex items-center gap-3">
-                        <div className="w-12 h-12 sm:w-16 sm:h-16 relative rounded-lg overflow-hidden flex-shrink-0">
+                        <div className="w-16 h-16 relative rounded-lg overflow-hidden">
                           <Image
                             src={selectedProduct.images[0]}
                             alt={selectedProduct.name}
@@ -289,11 +285,11 @@ export const OrderForm = () => {
                             className="object-cover"
                           />
                         </div>
-                        <div className="min-w-0">
-                          <h4 className="font-medium text-gray-800 text-sm sm:text-base truncate">
+                        <div>
+                          <h4 className="font-medium text-gray-800">
                             {selectedProduct.name}
                           </h4>
-                          <p className="text-xs sm:text-sm text-pink font-semibold">
+                          <p className="text-sm text-pink font-semibold">
                             {formatPrice(selectedProduct.price)}
                           </p>
                         </div>
@@ -303,13 +299,14 @@ export const OrderForm = () => {
                 </div>
               )}
             </div>
-            <div className="flex flex-col sm:flex-row gap-3 pt-2">
+
+            <div className="flex gap-3">
               {orderItems.length > 0 && (
                 <Button
                   type="button"
                   onClick={clearOrderItems}
                   variant="outline"
-                  className="flex-1 text-sm"
+                  className="flex-1"
                 >
                   Xóa tất cả
                 </Button>
@@ -320,32 +317,28 @@ export const OrderForm = () => {
               </Button>
             </div>
           </form>
-        </div>{" "}
+        </div>
+
         {/* Right side - Order Summary */}
-        <div className="xl:col-span-2 lg:col-span-1 p-4 sm:p-6 bg-gray-50 lg:bg-white">
-          <h3 className="text-base sm:text-lg font-semibold text-gray-800 border-b pb-2 mb-4">
+        <div className="p-6 bg-gray-50 lg:bg-white">
+          <h3 className="text-lg font-semibold text-gray-800 border-b pb-2 mb-4">
             Sản phẩm đã chọn ({orderItems.length})
           </h3>
 
           {orderItems.length === 0 ? (
-            <div className="text-center py-6 sm:py-8 text-gray-500">
-              <ShoppingCart
-                size={36}
-                className="sm:w-12 sm:h-12 mx-auto mb-3 opacity-50"
-              />
-              <p className="text-sm sm:text-base">Chưa có sản phẩm nào</p>
-              <p className="text-xs sm:text-sm">
-                Hãy chọn sản phẩm từ danh sách bên trái
-              </p>
+            <div className="text-center py-8 text-gray-500">
+              <ShoppingCart size={48} className="mx-auto mb-3 opacity-50" />
+              <p>Chưa có sản phẩm nào</p>
+              <p className="text-sm">Hãy chọn sản phẩm từ danh sách bên trái</p>
             </div>
           ) : (
-            <div className="space-y-2 sm:space-y-3 max-h-64 sm:max-h-96 overflow-y-auto">
+            <div className="space-y-3 max-h-96 overflow-y-auto">
               {orderItems.map((item) => (
                 <div
                   key={item.id}
-                  className="flex items-center gap-2 sm:gap-3 p-2 sm:p-3 bg-white rounded-lg shadow-sm border border-gray-100"
+                  className="flex items-center gap-3 p-3 bg-white rounded-lg shadow-sm border border-gray-100"
                 >
-                  <div className="w-12 h-12 sm:w-16 sm:h-16 relative rounded-lg overflow-hidden flex-shrink-0">
+                  <div className="w-16 h-16 relative rounded-lg overflow-hidden flex-shrink-0">
                     <Image
                       src={item.image}
                       alt={item.name}
@@ -355,13 +348,13 @@ export const OrderForm = () => {
                   </div>
 
                   <div className="flex-1 min-w-0">
-                    <h4 className="font-medium text-gray-800 text-xs sm:text-sm truncate">
+                    <h4 className="font-medium text-gray-800 truncate">
                       {item.name}
                     </h4>
-                    <p className="text-xs text-gray-600">
+                    <p className="text-sm text-gray-600">
                       {formatPrice(item.price)} × {item.quantity}
                     </p>
-                    <p className="text-xs sm:text-sm font-semibold text-pink">
+                    <p className="text-sm font-semibold text-pink">
                       {formatPrice(item.price * item.quantity)}
                     </p>
                   </div>
@@ -374,10 +367,10 @@ export const OrderForm = () => {
                       }
                       className="p-1 rounded hover:bg-gray-200 text-gray-600"
                     >
-                      <Minus size={12} />
+                      <Minus size={14} />
                     </button>
 
-                    <span className="w-6 sm:w-8 text-center text-xs sm:text-sm font-medium">
+                    <span className="w-8 text-center text-sm font-medium">
                       {item.quantity}
                     </span>
 
@@ -388,7 +381,7 @@ export const OrderForm = () => {
                       }
                       className="p-1 rounded hover:bg-gray-200 text-gray-600"
                     >
-                      <Plus size={12} />
+                      <Plus size={14} />
                     </button>
 
                     <button
@@ -396,7 +389,7 @@ export const OrderForm = () => {
                       onClick={() => removeOrderItem(item.id)}
                       className="p-1 rounded hover:bg-red-100 text-red-600 ml-1"
                     >
-                      <Trash2 size={12} />
+                      <Trash2 size={14} />
                     </button>
                   </div>
                 </div>
@@ -405,8 +398,8 @@ export const OrderForm = () => {
           )}
 
           {orderItems.length > 0 && (
-            <div className="mt-3 sm:mt-4 pt-3 sm:pt-4 border-t border-gray-200">
-              <div className="flex justify-between items-center text-lg sm:text-xl font-bold">
+            <div className="mt-4 pt-4 border-t border-gray-200">
+              <div className="flex justify-between items-center text-xl font-bold">
                 <span>Tổng tiền:</span>
                 <span className="text-pink">
                   {isClient ? formatPrice(getOrderTotal()) : ""}
