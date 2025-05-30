@@ -38,7 +38,7 @@ export const OrderForm = () => {
     getOrderTotal,
   } = useOrderStore();
 
-  const [selectedProductId, setSelectedProductId] = useState("");
+  const [selectedProductIds, setSelectedProductIds] = useState<string[]>([]);
   const [showOrderPreview, setShowOrderPreview] = useState(false);
 
   // Import cart items when component mounts or cart changes
@@ -48,19 +48,37 @@ export const OrderForm = () => {
     }
   }, [cartItems, orderItems.length, importFromCart]);
 
-  const handleAddProduct = () => {
-    if (!selectedProductId) return;
+  const handleAddProducts = () => {
+    if (selectedProductIds.length === 0) return;
 
-    const product = products.find((p) => p.id === selectedProductId);
-    if (product) {
-      addOrderItem({
-        id: product.id,
-        name: product.name,
-        price: product.price,
-        image: product.images[0],
-      });
-      setSelectedProductId("");
-    }
+    selectedProductIds.forEach((productId) => {
+      const product = products.find((p) => p.id === productId);
+      if (product) {
+        addOrderItem({
+          id: product.id,
+          name: product.name,
+          price: product.price,
+          image: product.images[0],
+        });
+      }
+    });
+    setSelectedProductIds([]);
+  };
+
+  const handleProductToggle = (productId: string) => {
+    setSelectedProductIds((prev) =>
+      prev.includes(productId)
+        ? prev.filter((id) => id !== productId)
+        : [...prev, productId]
+    );
+  };
+
+  const handleSelectAll = () => {
+    setSelectedProductIds(products.map((p) => p.id));
+  };
+
+  const handleDeselectAll = () => {
+    setSelectedProductIds([]);
   };
 
   const handleGenerateOrder = (e: React.FormEvent) => {
@@ -244,63 +262,71 @@ export const OrderForm = () => {
             </div>{" "}
             {/* Thêm sản phẩm */}
             <div className="space-y-3 sm:space-y-4">
-              <h3 className="text-base sm:text-lg font-semibold text-gray-800 border-b pb-2">
-                Chọn sản phẩm
-              </h3>
-
-              <div className="flex gap-2">
-                <select
-                  value={selectedProductId}
-                  onChange={(e) => setSelectedProductId(e.target.value)}
-                  className="flex-1 px-3 py-2 text-sm border border-gray-300 rounded-md shadow-sm focus:border-pink focus:ring-pink focus:ring-1"
-                >
-                  <option value="">Chọn sản phẩm...</option>
-                  {products.map((product) => (
-                    <option key={product.id} value={product.id}>
-                      {product.name} - {formatPrice(product.price)}
-                    </option>
-                  ))}
-                </select>
-                <Button
-                  type="button"
-                  onClick={handleAddProduct}
-                  disabled={!selectedProductId}
-                  size="sm"
-                  className="px-3 sm:px-4"
-                >
-                  <Plus size={16} />
-                </Button>
+              <div className="flex items-center justify-between">
+                <h3 className="text-base sm:text-lg font-semibold text-gray-800 border-b pb-2">
+                  Chọn sản phẩm ({selectedProductIds.length}/{products.length})
+                </h3>
+                <div className="flex gap-2">
+                  <button
+                    type="button"
+                    onClick={handleSelectAll}
+                    className="text-xs text-pink hover:text-pink-dark font-medium"
+                  >
+                    Chọn tất cả
+                  </button>
+                  <span className="text-gray-300">|</span>
+                  <button
+                    type="button"
+                    onClick={handleDeselectAll}
+                    className="text-xs text-gray-600 hover:text-gray-800 font-medium"
+                  >
+                    Bỏ chọn
+                  </button>
+                </div>
               </div>
 
-              {/* Hiển thị ảnh sản phẩm được chọn */}
-              {selectedProductId && (
-                <div className="mt-3 p-3 bg-gray-50 rounded-lg">
-                  {(() => {
-                    const selectedProduct = products.find(
-                      (p) => p.id === selectedProductId
-                    );
-                    return selectedProduct ? (
-                      <div className="flex items-center gap-3">
-                        <div className="w-12 h-12 sm:w-16 sm:h-16 relative rounded-lg overflow-hidden flex-shrink-0">
-                          <Image
-                            src={selectedProduct.images[0]}
-                            alt={selectedProduct.name}
-                            fill
-                            className="object-cover"
-                          />
-                        </div>
-                        <div className="min-w-0">
-                          <h4 className="font-medium text-gray-800 text-sm sm:text-base truncate">
-                            {selectedProduct.name}
-                          </h4>
-                          <p className="text-xs sm:text-sm text-pink font-semibold">
-                            {formatPrice(selectedProduct.price)}
-                          </p>
-                        </div>
-                      </div>
-                    ) : null;
-                  })()}
-                </div>
+              {/* Danh sách sản phẩm với checkbox */}
+              <div className="max-h-64 overflow-y-auto border border-gray-300 rounded-md">
+                {products.map((product) => (
+                  <label
+                    key={product.id}
+                    className="flex items-center gap-3 p-3 hover:bg-gray-50 cursor-pointer border-b last:border-b-0"
+                  >
+                    <input
+                      type="checkbox"
+                      checked={selectedProductIds.includes(product.id)}
+                      onChange={() => handleProductToggle(product.id)}
+                      className="w-4 h-4 text-pink border-gray-300 rounded focus:ring-pink"
+                    />
+                    <div className="w-12 h-12 relative rounded-lg overflow-hidden flex-shrink-0">
+                      <Image
+                        src={product.images[0]}
+                        alt={product.name}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <h4 className="font-medium text-gray-800 text-sm truncate">
+                        {product.name}
+                      </h4>
+                      <p className="text-sm text-pink font-semibold">
+                        {formatPrice(product.price)}
+                      </p>
+                    </div>
+                  </label>
+                ))}
+              </div>
+
+              {selectedProductIds.length > 0 && (
+                <Button
+                  type="button"
+                  onClick={handleAddProducts}
+                  className="w-full flex items-center justify-center gap-2"
+                >
+                  <Plus size={16} />
+                  Thêm {selectedProductIds.length} sản phẩm vào đơn hàng
+                </Button>
               )}
             </div>
             <div className="flex flex-col sm:flex-row gap-3 pt-2">
