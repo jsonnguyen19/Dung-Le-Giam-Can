@@ -122,12 +122,6 @@ export const PageNavigation = () => {
               <Link
                 href="/"
                 className="text-gray-500 hover:text-pink font-medium"
-                onClick={(e) => {
-                  e.preventDefault();
-                  router.push("/");
-                  // Đảm bảo URL luôn hiển thị đúng
-                  window.history.pushState({}, "", "/");
-                }}
               >
                 Trang chủ
               </Link>
