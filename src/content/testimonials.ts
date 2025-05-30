@@ -130,3 +130,22 @@ export const testimonials: Testimonial[] = [
     date: "2025-04-05",
   },
 ];
+
+// Get featured testimonials for homepage (first 6)
+export const getFeaturedTestimonials = (limit: number = 6): Testimonial[] => {
+  return testimonials.slice(0, limit);
+};
+
+// Get testimonials by platform
+export const getTestimonialsByPlatform = (
+  platform: "tiktok" | "zalo"
+): Testimonial[] => {
+  return testimonials.filter((t) => t.platform === platform);
+};
+
+// Get recent testimonials
+export const getRecentTestimonials = (limit: number = 8): Testimonial[] => {
+  return testimonials
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+    .slice(0, limit);
+};

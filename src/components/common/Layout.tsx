@@ -14,6 +14,7 @@ const navigation = [
   { name: "Trang chủ", href: "/" },
   { name: "Giới thiệu", href: "/#about" },
   { name: "Sản phẩm", href: "/products" },
+  { name: "Đánh giá", href: "/testimonials" },
   { name: "Đơn hàng", href: "/#order" },
   { name: "Liên hệ", href: "/contact" },
   { name: "Blog", href: "/blog" },

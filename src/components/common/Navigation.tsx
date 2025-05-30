@@ -14,6 +14,7 @@ const pathNames: Record<string, string> = {
   cart: "Giỏ hàng",
   order: "Đơn hàng",
   about: "Giới thiệu",
+  testimonials: "Đánh giá khách hàng",
   "order-success": "Đặt hàng thành công",
   "privacy-policy": "Chính sách bảo mật",
   "terms-of-service": "Điều khoản dịch vụ",

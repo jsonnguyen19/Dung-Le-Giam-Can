@@ -1,7 +1,9 @@
 import Image from "next/image";
+import Link from "next/link";
 import { Section } from "@/components/ui/Section";
+import { Button } from "@/components/ui/Button";
 import { AnimatedDiv } from "@/components/motion/WithAnimation";
-import { testimonials } from "@/content/testimonials";
+import { getFeaturedTestimonials } from "@/content/testimonials";
 
 const StarRating = ({ rating }: { rating: number }) => {
   return (
@@ -19,6 +21,8 @@ const StarRating = ({ rating }: { rating: number }) => {
 };
 
 export const Testimonials = () => {
+  const featuredTestimonials = getFeaturedTestimonials(6); // Chỉ hiện 6 testimonials
+
   return (
     <Section
       title="Khách hàng nói gì về chúng tôi?"
@@ -26,7 +30,7 @@ export const Testimonials = () => {
       className="bg-pinkLight"
     >
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {testimonials.map((testimonial, index) => (
+        {featuredTestimonials.map((testimonial, index) => (
           <AnimatedDiv
             key={testimonial.id}
             initial={{ opacity: 0, y: 20 }}
@@ -65,6 +69,27 @@ export const Testimonials = () => {
             <p className="mt-4 text-gray-600">{testimonial.comment}</p>
           </AnimatedDiv>
         ))}
+      </div>
+
+      {/* View All Button */}
+      <div className="text-center mt-12">
+        <AnimatedDiv
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+        >
+          <Link href="/testimonials">
+            <Button
+              variant="secondary"
+              size="lg"
+              className="inline-flex items-center gap-2"
+            >
+              Xem tất cả đánh giá
+              <span className="text-lg">👥</span>
+            </Button>
+          </Link>
+        </AnimatedDiv>
       </div>
     </Section>
   );
