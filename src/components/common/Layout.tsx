@@ -35,9 +35,13 @@ export const Header = () => {
     if (href === "/") {
       e.preventDefault();
 
-      // If already on homepage, just scroll to top
+      // If already on homepage, scroll to top and clear hash
       if (pathname === "/") {
         window.scrollTo({ top: 0, behavior: "smooth" });
+        // Clear hash from URL if it exists
+        if (window.location.hash) {
+          window.history.pushState({}, "", "/");
+        }
       } else {
         // If on another page, navigate to homepage
         router.push("/");
