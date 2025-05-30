@@ -19,7 +19,7 @@ export const TrustFactors = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: index * 0.2 }}
-            className="bg-white p-6 rounded-lg shadow-sm text-center"
+            className="bg-white p-4 md:p-6 rounded-lg shadow-sm text-center"
           >
             <div className="text-4xl mb-4">{factor.icon}</div>
             <h3 className="text-xl font-semibold mb-2">{factor.title}</h3>
