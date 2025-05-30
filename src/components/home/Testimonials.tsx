@@ -33,7 +33,7 @@ export const Testimonials = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
-            className="bg-white p-6 rounded-lg shadow-md"
+            className="bg-white p-4 md:p-6 rounded-lg shadow-md"
           >
             <div className="flex items-start gap-4 mb-4">
               <Image
