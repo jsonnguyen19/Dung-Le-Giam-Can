@@ -6,8 +6,31 @@ import { AnimatedArticle } from "@/components/motion/WithAnimation";
 import { blogPosts } from "@/content/blogs";
 
 export const metadata: Metadata = {
-  title: "Blog - Dung Lê Giảm Cân",
-  description: "Chia sẻ kinh nghiệm và kiến thức về giảm cân khoa học.",
+  title: "Blog - Chia sẻ kinh nghiệm giảm cân | Dung Lê Giảm Cân",
+  description:
+    "Chia sẻ kiến thức, mẹo và bí quyết giảm cân hiệu quả, an toàn. Cập nhật thông tin mới nhất về các phương pháp giảm cân khoa học.",
+  openGraph: {
+    title: "Blog - Chia sẻ kinh nghiệm giảm cân | Dung Lê Giảm Cân",
+    description:
+      "Chia sẻ kiến thức, mẹo và bí quyết giảm cân hiệu quả, an toàn. Cập nhật thông tin mới nhất về các phương pháp giảm cân khoa học.",
+    type: "website",
+    images: [
+      {
+        url: "/images/blog/blog-01.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Blog Dung Lê Giảm Cân",
+      },
+    ],
+    siteName: "Dung Lê Giảm Cân",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Blog - Chia sẻ kinh nghiệm giảm cân | Dung Lê Giảm Cân",
+    description:
+      "Chia sẻ kiến thức, mẹo và bí quyết giảm cân hiệu quả, an toàn. Cập nhật thông tin mới nhất về các phương pháp giảm cân khoa học.",
+    images: ["/images/blog/blog-01.jpg"],
+  },
 };
 
 export default function BlogPage() {

@@ -5,8 +5,31 @@ import { AnimatedDiv } from "@/components/motion/WithAnimation";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "Liên hệ - Dung Lê Giảm Cân",
-  description: "Liên hệ với chúng tôi để được tư vấn về sản phẩm giảm cân.",
+  title: "Liên hệ - Tư vấn giảm cân miễn phí | Dung Lê Giảm Cân",
+  description:
+    "Liên hệ với chúng tôi để được tư vấn miễn phí về sản phẩm giảm cân. Đội ngũ tư vấn chuyên nghiệp, nhiệt tình sẽ giúp bạn chọn được sản phẩm phù hợp nhất.",
+  openGraph: {
+    title: "Liên hệ - Tư vấn giảm cân miễn phí | Dung Lê Giảm Cân",
+    description:
+      "Liên hệ với chúng tôi để được tư vấn miễn phí về sản phẩm giảm cân. Đội ngũ tư vấn chuyên nghiệp, nhiệt tình sẽ giúp bạn chọn được sản phẩm phù hợp nhất.",
+    type: "website",
+    images: [
+      {
+        url: "/images/logo/logo.png",
+        width: 1200,
+        height: 630,
+        alt: "Liên hệ Dung Lê Giảm Cân",
+      },
+    ],
+    siteName: "Dung Lê Giảm Cân",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Liên hệ - Tư vấn giảm cân miễn phí | Dung Lê Giảm Cân",
+    description:
+      "Liên hệ với chúng tôi để được tư vấn miễn phí về sản phẩm giảm cân. Đội ngũ tư vấn chuyên nghiệp, nhiệt tình sẽ giúp bạn chọn được sản phẩm phù hợp nhất.",
+    images: ["/images/logo/logo.png"],
+  },
 };
 
 export default function ContactPage() {

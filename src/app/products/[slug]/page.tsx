@@ -23,16 +23,35 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!product) {
     return {
       title: "Không tìm thấy sản phẩm - Dung Lê Giảm Cân",
+      description: "Sản phẩm này không tồn tại hoặc đã bị xóa.",
     };
   }
 
+  const title = product.name;
+  const description = product.description;
+
   return {
-    title: `${product.name} - Dung Lê Giảm Cân`,
-    description: product.description,
+    title,
+    description,
     openGraph: {
-      title: product.name,
-      description: product.description,
-      images: [{ url: product.images[0] }],
+      title,
+      description,
+      images: [
+        {
+          url: product.images[0],
+          width: 1200,
+          height: 630,
+          alt: title,
+        },
+      ],
+      type: "website",
+      siteName: "Dung Lê Giảm Cân",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [product.images[0]],
     },
   };
 }

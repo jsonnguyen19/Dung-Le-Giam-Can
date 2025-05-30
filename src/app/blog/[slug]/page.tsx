@@ -23,16 +23,38 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!post) {
     return {
       title: "Không tìm thấy bài viết - Dung Lê Giảm Cân",
+      description: "Bài viết này không tồn tại hoặc đã bị xóa.",
     };
   }
 
+  const title = post.title;
+  const description = post.excerpt;
+
   return {
-    title: `${post.title} - Dung Lê Giảm Cân`,
-    description: post.excerpt,
+    title,
+    description,
     openGraph: {
-      title: post.title,
-      description: post.excerpt,
-      images: [{ url: post.image }],
+      title,
+      description,
+      type: "article",
+      publishedTime: post.date,
+      authors: [post.author],
+      tags: post.tags,
+      images: [
+        {
+          url: post.image,
+          width: 1200,
+          height: 630,
+          alt: title,
+        },
+      ],
+      siteName: "Dung Lê Giảm Cân",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [post.image],
     },
   };
 }
