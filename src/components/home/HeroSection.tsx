@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Pagination } from "swiper/modules";
+import { Autoplay } from "swiper/modules";
 import {
   AnimatedDiv,
   AnimatedHeading,
@@ -13,7 +13,6 @@ import { homeContent } from "@/content/home";
 import Image from "next/image";
 
 import "swiper/css";
-import "swiper/css/pagination";
 
 export const HeroSection = () => {
   const swiperRef = useRef(null);
@@ -22,8 +21,7 @@ export const HeroSection = () => {
     <section className="relative h-screen min-h-[600px] max-h-[800px]">
       <Swiper
         ref={swiperRef}
-        modules={[Autoplay, Pagination]}
-        pagination={{ clickable: true }}
+        modules={[Autoplay]}
         autoplay={{ delay: 5000 }}
         loop={true}
         className="h-full"
