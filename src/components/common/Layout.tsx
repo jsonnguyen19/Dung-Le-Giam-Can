@@ -5,6 +5,23 @@ import Link from "next/link";
 import { socialLinks } from "@/content/contact";
 import { useCartStore } from "@/store/cartStore";
 
+const handleNavClick = (
+  e: React.MouseEvent<HTMLAnchorElement>,
+  href: string
+) => {
+  if (href === "/") {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    // Cập nhật URL sau khi scroll xong
+    setTimeout(() => {
+      window.history.pushState({}, "", href);
+    }, 0);
+  } else if (href.startsWith("/#")) {
+    // Đã có CSS scroll-behavior: smooth xử lý
+    return;
+  }
+};
+
 const navigation = [
   { name: "Trang chủ", href: "/" },
   { name: "Giới thiệu", href: "/#about" },
@@ -21,7 +38,11 @@ export const Header = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm">
       <nav className="container mx-auto px-4 py-4 flex items-center justify-between">
-        <Link href="/" className="flex items-center space-x-2">
+        <Link
+          href="/"
+          className="flex items-center space-x-2"
+          onClick={(e) => handleNavClick(e, "/")}
+        >
           <Image
             src="/images/logo/logo.jpg"
             alt="Dung Lê Giảm Cân"
@@ -38,6 +59,7 @@ export const Header = () => {
               key={item.name}
               href={item.href}
               className="text-gray-700 hover:text-pink transition-colors"
+              onClick={(e) => handleNavClick(e, item.href)}
             >
               {item.name}
             </Link>
