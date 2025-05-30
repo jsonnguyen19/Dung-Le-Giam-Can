@@ -125,7 +125,7 @@ export const Header = () => {
           onClick={(e) => handleNavClick(e, "/")}
         >
           <Image
-            src="/images/logo/logo.jpg"
+            src="/images/logo/logo.png"
             alt="Dung Lê Giảm Cân"
             width={40}
             height={40}

@@ -11,6 +11,12 @@ const pathNames: Record<string, string> = {
   products: "Sản phẩm",
   blog: "Blog",
   contact: "Liên hệ",
+  cart: "Giỏ hàng",
+  order: "Đơn hàng",
+  about: "Giới thiệu",
+  "order-success": "Đặt hàng thành công",
+  "privacy-policy": "Chính sách bảo mật",
+  "terms-of-service": "Điều khoản dịch vụ",
 };
 
 // This component handles both breadcrumb for desktop and back button for mobile
@@ -24,8 +30,31 @@ export const PageNavigation = () => {
     return null;
   }
 
-  // Split the path to generate breadcrumb segments
-  const pathSegments = pathname.split("/").filter(Boolean);
+  // Split the path to generate breadcrumb segments and handle hash routes
+  const [basePath, hash] = pathname.split("#");
+  const pathSegments = basePath.split("/").filter(Boolean);
+
+  // Helper function to get display name for a segment
+  const getDisplayName = (segment: string, fullPath: string[]) => {
+    // Handle dynamic routes first
+    if (fullPath[0] === "products" && segment === fullPath[1]) {
+      const product = products.find((p) => p.slug === segment);
+      if (product) return product.name;
+    }
+    if (fullPath[0] === "blog" && segment === fullPath[1]) {
+      const blog = blogPosts.find((b) => b.slug === segment);
+      if (blog) return blog.title;
+    }
+
+    // Check if there's a mapped name
+    if (pathNames[segment]) return pathNames[segment];
+
+    // Fallback: capitalize first letter and replace hyphens with spaces
+    return segment
+      .split("-")
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(" ");
+  };
 
   // If we're on mobile, show a back button
   if (isMobile) {
@@ -33,18 +62,7 @@ export const PageNavigation = () => {
     let pageTitle = "";
     if (pathSegments.length > 0) {
       const lastSegment = pathSegments[pathSegments.length - 1];
-
-      if (pathSegments[0] === "products" && pathSegments.length > 1) {
-        const product = products.find((p) => p.slug === lastSegment);
-        pageTitle = product
-          ? product.name
-          : pathNames["products"] || "Sản phẩm";
-      } else if (pathSegments[0] === "blog" && pathSegments.length > 1) {
-        const blog = blogPosts.find((b) => b.slug === lastSegment);
-        pageTitle = blog ? blog.title : pathNames["blog"] || "Blog";
-      } else {
-        pageTitle = pathNames[lastSegment] || lastSegment;
-      }
+      pageTitle = getDisplayName(lastSegment, pathSegments);
     }
 
     // Capitalize the first letter if it's a single word
@@ -130,44 +148,27 @@ export const PageNavigation = () => {
               )}
             </li>
             {pathSegments.map((segment, index) => {
-              const path = `/${pathSegments.slice(0, index + 1).join("/")}`;
+              const path = `/${pathSegments.slice(0, index + 1).join("/")}${
+                hash ? `#${hash}` : ""
+              }`;
               const isLast = index === pathSegments.length - 1;
 
-              // Find names for dynamic routes
-              let displayName = pathNames[segment] || segment;
-
-              // If this is a product slug, find the product name
-              if (
-                index === 1 &&
-                pathSegments[0] === "products" &&
-                !pathNames[segment]
-              ) {
-                const product = products.find((p) => p.slug === segment);
-                if (product) displayName = product.name;
-              }
-
-              // If this is a blog slug, find the blog title
-              if (
-                index === 1 &&
-                pathSegments[0] === "blog" &&
-                !pathNames[segment]
-              ) {
-                const blog = blogPosts.find((b) => b.slug === segment);
-                if (blog) displayName = blog.title;
-              }
+              // Get display name using our helper function
+              const displayName = getDisplayName(segment, pathSegments);
 
               // If it's the last segment, mark it as current and don't make it a link
               return (
                 <li key={path} className="flex items-center">
                   {isLast ? (
-                    <span className="text-pink font-medium">{displayName}</span>
+                    <span className="text-pink font-medium" aria-current="page">
+                      {displayName}
+                    </span>
                   ) : (
                     <>
                       <Link
                         href={path}
-                        className="text-gray-500 hover:text-pink"
+                        className="text-gray-500 hover:text-pink transition-colors"
                         onClick={(e) => {
-                          // Nếu liên kết chứa hash tag, giữ nó lại trong URL
                           if (path.includes("#")) {
                             e.preventDefault();
                             router.push(path);
@@ -177,7 +178,9 @@ export const PageNavigation = () => {
                       >
                         {displayName}
                       </Link>
-                      <span className="mx-2 text-gray-400">/</span>
+                      <span className="mx-2 text-gray-400" aria-hidden="true">
+                        /
+                      </span>
                     </>
                   )}
                 </li>
