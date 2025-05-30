@@ -23,7 +23,7 @@ export const ProductCard = ({
     <Link href={href}>
       <AnimatedDiv
         whileHover={{ y: -5 }}
-        className="bg-white rounded-lg shadow-md overflow-hidden cursor-pointer"
+        className="bg-white rounded-lg md:shadow-md overflow-hidden cursor-pointer"
       >
         <div className="relative h-48">
           <Image

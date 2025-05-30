@@ -21,7 +21,7 @@ export const RecentBlogs = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
-            className="bg-white rounded-lg shadow-md overflow-hidden"
+            className="bg-white rounded-lg md:shadow-md overflow-hidden"
           >
             <Link href={`/blog/${post.slug}`}>
               <div className="relative h-48">
