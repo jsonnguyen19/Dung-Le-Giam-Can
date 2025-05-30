@@ -132,7 +132,7 @@ export const Header = () => {
             </Link>
           ))}
           <Link
-            href="/#cart"
+            href="/cart"
             className="relative text-pink hover:text-pinkDark transition-colors"
           >
             <svg
@@ -150,7 +150,7 @@ export const Header = () => {
               />
             </svg>
             {totalItems > 0 && (
-              <span className="absolute -top-2 -right-2 bg-pink text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+              <span className="absolute -top-2 -right-2 bg-pink text-white text-xs font-bold rounded-full min-w-[20px] h-5 px-1 flex items-center justify-center">
                 {totalItems}
               </span>
             )}
@@ -216,9 +216,8 @@ export const Header = () => {
 
                 {/* Cart Link in Mobile Menu */}
                 <Link
-                  href="/#cart"
+                  href="/cart"
                   className="flex items-center justify-between text-pink hover:text-pinkDark transition-colors py-2 text-lg font-medium border-t border-gray-200 pt-4 mt-4"
-                  onClick={(e) => handleMobileNavClick(e, "/#cart")}
                 >
                   <div className="flex items-center space-x-3">
                     <svg
