@@ -1,6 +1,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Header, Footer } from "@/components/common/Layout";
+import { PageNavigation } from "@/components/common/Navigation";
 import { Inter } from "next/font/google";
 import { StoreProvider } from "@/store/provider";
 
@@ -28,8 +29,11 @@ export default function RootLayout({
     <html lang="vi" className={inter.className}>
       <body className="min-h-screen flex flex-col">
         <StoreProvider>
+          {/* Header is fixed positioned */}
           <Header />
-          <main className="flex-grow pt-16">{children}</main>
+          {/* PageNavigation handles its own spacing with mt-16 */}
+          <PageNavigation />
+          <main className="flex-grow">{children}</main>
           <Footer />
         </StoreProvider>
       </body>
