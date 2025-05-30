@@ -8,16 +8,16 @@ export const contactInfo = {
     tiktok: {
       username: "shop dung lê 5",
       url: "https://www.tiktok.com/@shopdungle5",
-      image: "/images/social/tiktok.jpg",
+      image: "/images/social/zalo.png",
     },
     zalo: {
       name: "shop dung lê giảm cân",
       url: "https://zalo.me/0937221892",
-      image: "/images/social/zalo.jpg",
+      image: "/images/social/zalo.png",
     },
     youtube: {
       url: "https://youtube.com/@DungLeGiamCan",
-      image: "/images/social/youtube.jpg",
+      image: "/images/social/youtube.png",
     },
   },
   businessHours: {

@@ -376,7 +376,7 @@ export const Footer = () => {
                 className="hover:opacity-80 transition-opacity"
               >
                 <Image
-                  src="/images/social/tiktok.jpg"
+                  src="/images/social/tiktok.png"
                   alt="TikTok"
                   width={40}
                   height={40}
@@ -390,7 +390,7 @@ export const Footer = () => {
                 className="hover:opacity-80 transition-opacity"
               >
                 <Image
-                  src="/images/social/zalo.jpg"
+                  src="/images/social/zalo.png"
                   alt="Zalo"
                   width={40}
                   height={40}
