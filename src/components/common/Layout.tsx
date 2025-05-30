@@ -370,7 +370,7 @@ export const Footer = () => {
             <h3 className="text-lg font-semibold mb-4">Theo dõi chúng tôi</h3>
             <div className="flex space-x-4">
               <a
-                href="https://www.tiktok.com/@shopdungle5"
+                href={socialLinks.find((link) => link.name === "TikTok")?.url}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:opacity-80 transition-opacity"
@@ -384,7 +384,7 @@ export const Footer = () => {
                 />
               </a>
               <a
-                href="https://zalo.me/0937221892"
+                href={socialLinks.find((link) => link.name === "Zalo")?.url}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:opacity-80 transition-opacity"
@@ -392,6 +392,20 @@ export const Footer = () => {
                 <Image
                   src="/images/social/zalo.png"
                   alt="Zalo"
+                  width={40}
+                  height={40}
+                  className="rounded"
+                />
+              </a>
+              <a
+                href="https://youtube.com/@DungLeGiamCan"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:opacity-80 transition-opacity"
+              >
+                <Image
+                  src="/images/social/youtube.png"
+                  alt="YouTube"
                   width={40}
                   height={40}
                   className="rounded"

@@ -8,7 +8,7 @@ export const contactInfo = {
     tiktok: {
       username: "shop dung lê 5",
       url: "https://www.tiktok.com/@shopdungle5",
-      image: "/images/social/zalo.png",
+      image: "/images/social/tiktok.png",
     },
     zalo: {
       name: "shop dung lê giảm cân",
