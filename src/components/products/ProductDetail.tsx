@@ -21,7 +21,7 @@ export const ProductDetail = ({
   return (
     <>
       <Section>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
           {/* Product Images */}
           <AnimatedDiv
             initial={{ opacity: 0, x: -20 }}
