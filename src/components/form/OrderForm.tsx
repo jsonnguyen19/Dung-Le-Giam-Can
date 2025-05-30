@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useIsClient } from "@/hooks/useIsClient";
 import { AnimatedDiv } from "@/components/motion/WithAnimation";
 import { useCartStore } from "@/store/cartStore";
 import { Button } from "@/components/ui/Button";
@@ -15,6 +16,7 @@ interface OrderFormData {
 }
 
 export const OrderForm = () => {
+  const isClient = useIsClient();
   const { items, getTotalPrice, clearCart } = useCartStore();
   const [formData, setFormData] = useState<OrderFormData>({
     name: "",
@@ -143,7 +145,7 @@ export const OrderForm = () => {
           <div className="flex justify-between items-center mb-4">
             <span className="text-lg font-semibold">Tổng tiền:</span>
             <span className="text-xl font-bold text-pink">
-              {formatPrice(getTotalPrice())}
+              {isClient ? formatPrice(getTotalPrice()) : ""}
             </span>
           </div>
 

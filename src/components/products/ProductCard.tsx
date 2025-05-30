@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useRef } from "react";
+import { useIsClient } from "@/hooks/useIsClient";
 import { AnimatedDiv } from "@/components/motion/WithAnimation";
 import { useCartStore } from "@/store/cartStore";
 import { useAddToCartContext } from "@/context/AddToCartContext";
@@ -25,6 +26,7 @@ export const ProductCard = ({
   description,
   href,
 }: ProductCardProps) => {
+  const isClient = useIsClient();
   const addToCartButtonRef = useRef<HTMLButtonElement>(null);
   const { triggerAddToCart } = useAddToCartContext();
 
@@ -70,7 +72,9 @@ export const ProductCard = ({
             {description}
           </p>
           <div className="flex items-center justify-between">
-            <span className="text-pink font-bold">{formatPrice(price)}</span>
+            <span className="text-pink font-bold">
+              {isClient ? formatPrice(price) : ""}
+            </span>
             <button
               ref={addToCartButtonRef}
               onClick={handleAddToCart}

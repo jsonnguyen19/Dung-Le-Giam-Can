@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useRef } from "react";
 import { Button } from "@/components/ui/Button";
+import { useIsClient } from "@/hooks/useIsClient";
 import { Section } from "@/components/ui/Section";
 import { ProductCard } from "@/components/products/ProductCard";
 import { Product } from "@/content/products";
@@ -20,6 +21,7 @@ export const ProductDetail = ({
   product,
   relatedProducts,
 }: ProductDetailProps) => {
+  const isClient = useIsClient();
   const addToCartButtonRef = useRef<HTMLButtonElement>(null);
   const { triggerAddToCart } = useAddToCartContext();
 
@@ -94,7 +96,7 @@ export const ProductDetail = ({
           >
             <h1 className="text-3xl font-bold text-gray-900">{product.name}</h1>
             <p className="text-xl font-semibold text-pink">
-              {formatPrice(product.price)}
+              {isClient ? formatPrice(product.price) : ""}
             </p>
             <div className="prose prose-pink">
               <p>{product.description}</p>
@@ -148,17 +150,18 @@ export const ProductDetail = ({
       {relatedProducts.length > 0 && (
         <Section title="Sản phẩm liên quan" className="bg-gray-50">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {relatedProducts.map((product) => (
-              <ProductCard
-                key={product.id}
-                id={product.id}
-                image={product.images[0]}
-                name={product.name}
-                price={product.price}
-                description={product.description}
-                href={`/products/${product.slug}`}
-              />
-            ))}
+            {isClient &&
+              relatedProducts.map((product) => (
+                <ProductCard
+                  key={product.id}
+                  id={product.id}
+                  image={product.images[0]}
+                  name={product.name}
+                  price={product.price}
+                  description={product.description}
+                  href={`/products/${product.slug}`}
+                />
+              ))}
           </div>
         </Section>
       )}

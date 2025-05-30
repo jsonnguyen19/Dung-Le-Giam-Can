@@ -1,5 +1,6 @@
 "use client";
 
+import { useIsClient } from "@/hooks/useIsClient";
 import { useCartStore } from "@/store/cartStore";
 import { formatPrice } from "@/lib/formatPrice";
 import Image from "next/image";
@@ -9,6 +10,7 @@ import { AnimatedDiv } from "@/components/motion/WithAnimation";
 import { Section } from "@/components/ui/Section";
 
 export default function CartPage() {
+  const isClient = useIsClient();
   const { items, removeItem, updateQuantity, getTotalPrice } = useCartStore();
 
   if (items.length === 0) {
@@ -48,7 +50,7 @@ export default function CartPage() {
               <div className="flex-grow">
                 <h3 className="font-medium text-gray-900">{item.name}</h3>
                 <div className="text-pink font-semibold mt-1">
-                  {formatPrice(item.price)}
+                  {isClient ? formatPrice(item.price) : ""}
                 </div>
                 <div className="flex items-center gap-4 mt-2">
                   <div className="flex items-center gap-2">
@@ -85,7 +87,9 @@ export default function CartPage() {
           <div className="border-t pt-4">
             <div className="flex justify-between font-semibold text-lg">
               <span>Tổng tiền:</span>
-              <span className="text-pink">{formatPrice(getTotalPrice())}</span>
+              <span className="text-pink">
+                {isClient ? formatPrice(getTotalPrice()) : ""}
+              </span>
             </div>
           </div>
           <Link href="/#order" className="block">
