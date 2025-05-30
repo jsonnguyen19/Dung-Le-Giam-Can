@@ -44,6 +44,7 @@ export const OrderForm = () => {
 
   const [selectedProductIds, setSelectedProductIds] = useState<string[]>([]);
   const [showOrderPreview, setShowOrderPreview] = useState(false);
+  const [isCopied, setIsCopied] = useState(false);
 
   // Enhanced remove order item with toast
   const handleRemoveOrderItem = (id: string, itemName: string) => {
@@ -211,6 +212,7 @@ export const OrderForm = () => {
 
       setOrderGenerated(message);
       setShowOrderPreview(true);
+      setIsCopied(false); // Reset copy status when new order is generated
 
       toast.dismiss(loadingToast);
       toast.success("Đơn hàng đã được tạo thành công! ✨", {
@@ -234,25 +236,29 @@ export const OrderForm = () => {
   const handleCopyOrder = async () => {
     try {
       await navigator.clipboard.writeText(generatedOrderMessage);
-      toast.success("Đã copy nội dung đơn hàng! 📋", {
-        duration: 2500,
+      setIsCopied(true); // Mark as copied successfully
+
+      toast.success("✅ Đã copy nội dung đơn hàng thành công! 📋", {
+        duration: 3000,
         style: {
-          background: "#f0f9ff",
-          color: "#0c4a6e",
-          border: "1px solid #bae6fd",
+          background: "#f0fdf4",
+          color: "#166534",
+          border: "1px solid #bbf7d0",
           borderRadius: "12px",
           fontSize: "14px",
           padding: "12px 16px",
         },
         iconTheme: {
-          primary: "#0ea5e9",
+          primary: "#10b981",
           secondary: "#ffffff",
         },
       });
     } catch (err) {
       console.error("Không thể copy:", err);
-      toast.error("Không thể copy nội dung! Vui lòng thử lại 😞", {
-        duration: 3000,
+      setIsCopied(false); // Mark as copy failed
+
+      toast.error("❌ Không thể copy nội dung! Vui lòng thử lại 😞", {
+        duration: 4000,
         style: {
           background: "#fef2f2",
           color: "#dc2626",
@@ -261,11 +267,38 @@ export const OrderForm = () => {
           fontSize: "14px",
           padding: "12px 16px",
         },
+        iconTheme: {
+          primary: "#ef4444",
+          secondary: "#ffffff",
+        },
       });
     }
   };
 
   const handleSendToZalo = () => {
+    // Check if content has been copied first
+    if (!isCopied) {
+      toast.error(
+        "⚠️ Vui lòng copy nội dung đơn hàng trước khi gửi qua Zalo!",
+        {
+          duration: 4000,
+          style: {
+            background: "#fef3cd",
+            color: "#8b5a00",
+            border: "1px solid #f6d55c",
+            borderRadius: "12px",
+            fontSize: "14px",
+            padding: "12px 16px",
+          },
+          iconTheme: {
+            primary: "#f59e0b",
+            secondary: "#ffffff",
+          },
+        }
+      );
+      return;
+    }
+
     const encodedMessage = encodeURIComponent(generatedOrderMessage);
     const zaloUrl = `https://zalo.me/0937221892?text=${encodedMessage}`;
 
@@ -285,7 +318,7 @@ export const OrderForm = () => {
       window.open(zaloUrl, "_blank");
 
       toast.dismiss(loadingToast);
-      toast.success("Đã mở Zalo! Kiểm tra tab mới để gửi đơn hàng 🎉", {
+      toast.success("🎉 Đã mở Zalo! Kiểm tra tab mới để gửi đơn hàng", {
         duration: 4000,
         style: {
           background: "#ecfdf5",
@@ -306,8 +339,9 @@ export const OrderForm = () => {
         clearCart();
         resetOrder();
         setShowOrderPreview(false);
+        setIsCopied(false); // Reset copy status
 
-        toast.success("Cảm ơn bạn đã đặt hàng! Đơn hàng đã được reset 🙏", {
+        toast.success("🙏 Cảm ơn bạn đã đặt hàng! Đơn hàng đã được reset", {
           duration: 3000,
           style: {
             background: "#fef3e7",
@@ -351,23 +385,45 @@ export const OrderForm = () => {
           <Button
             onClick={handleCopyOrder}
             variant="outline"
-            className="flex-1 flex items-center justify-center gap-2 hover:bg-blue-50 hover:border-blue-200 hover:text-blue-600 transition-all duration-200 transform hover:scale-[1.02]"
+            className={`flex-1 flex items-center justify-center gap-2 transition-all duration-200 transform hover:scale-[1.02] ${
+              isCopied
+                ? "bg-green-50 border-green-200 text-green-700 hover:bg-green-100"
+                : "hover:bg-blue-50 hover:border-blue-200 hover:text-blue-600"
+            }`}
           >
-            <Copy size={18} />
-            Copy nội dung
+            {isCopied ? <CheckCircle size={18} /> : <Copy size={18} />}
+            {isCopied ? "✅ Đã copy" : "📋 Copy nội dung"}
           </Button>
 
           <Button
             onClick={handleSendToZalo}
-            className="flex-1 flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 transform hover:scale-[1.02] transition-all duration-200 shadow-lg hover:shadow-xl"
+            disabled={!isCopied}
+            className={`flex-1 flex items-center justify-center gap-2 transform transition-all duration-200 shadow-lg ${
+              isCopied
+                ? "bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 hover:scale-[1.02] hover:shadow-xl"
+                : "bg-gray-400 cursor-not-allowed opacity-60"
+            }`}
           >
             <MessageCircle size={18} />
-            Gửi qua Zalo
+            {isCopied ? "Gửi qua Zalo" : "Vui lòng copy trước"}
           </Button>
         </div>
 
+        {!isCopied && (
+          <div className="mt-3 p-3 bg-yellow-50 border border-yellow-200 rounded-lg">
+            <p className="text-sm text-yellow-700 text-center">
+              ⚠️ <strong>Bước 1:</strong> Copy nội dung đơn hàng trước
+              <br />
+              <strong>Bước 2:</strong> Sau đó mới có thể gửi qua Zalo
+            </p>
+          </div>
+        )}
+
         <Button
-          onClick={() => setShowOrderPreview(false)}
+          onClick={() => {
+            setShowOrderPreview(false);
+            setIsCopied(false); // Reset copy status when going back to edit
+          }}
           variant="outline"
           className="w-full mt-4 hover:bg-gray-50 transition-colors duration-200"
         >
