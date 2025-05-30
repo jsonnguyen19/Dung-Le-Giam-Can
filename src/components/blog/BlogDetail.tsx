@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import ReactMarkdown from "react-markdown";
 import { Section } from "@/components/ui/Section";
 import { BlogPost } from "@/content/blogs";
 import {
@@ -57,10 +58,57 @@ export const BlogDetail = ({ post, relatedPosts }: BlogDetailProps) => {
               />
             </div>
 
-            <div
-              className="prose prose-pink max-w-none"
-              dangerouslySetInnerHTML={{ __html: post.content }}
-            />
+            <div className="prose prose-lg prose-gray max-w-none markdown-content">
+              <ReactMarkdown
+                components={{
+                  h1: ({ children }) => (
+                    <h1 className="text-3xl font-bold mt-8 mb-6 text-gray-900">
+                      {children}
+                    </h1>
+                  ),
+                  h2: ({ children }) => (
+                    <h2 className="text-2xl font-semibold mt-6 mb-4 text-gray-800">
+                      {children}
+                    </h2>
+                  ),
+                  h3: ({ children }) => (
+                    <h3 className="text-xl font-medium mt-5 mb-3 text-gray-800">
+                      {children}
+                    </h3>
+                  ),
+                  p: ({ children }) => (
+                    <p className="mb-4 text-gray-700 leading-relaxed">
+                      {children}
+                    </p>
+                  ),
+                  ul: ({ children }) => (
+                    <ul className="mb-4 ml-6 space-y-2 list-disc">
+                      {children}
+                    </ul>
+                  ),
+                  ol: ({ children }) => (
+                    <ol className="mb-4 ml-6 space-y-2 list-decimal">
+                      {children}
+                    </ol>
+                  ),
+                  li: ({ children }) => (
+                    <li className="text-gray-700 leading-relaxed">
+                      {children}
+                    </li>
+                  ),
+                  strong: ({ children }) => (
+                    <strong className="font-semibold text-gray-900">
+                      {children}
+                    </strong>
+                  ),
+                  em: ({ children }) => (
+                    <em className="italic text-gray-800">{children}</em>
+                  ),
+                }}
+              >
+                {post.content}
+              </ReactMarkdown>
+            </div>
           </AnimatedDiv>
         </article>
       </Section>
