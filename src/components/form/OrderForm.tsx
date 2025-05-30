@@ -235,10 +235,134 @@ export const OrderForm = () => {
 
   const handleCopyOrder = async () => {
     try {
-      await navigator.clipboard.writeText(generatedOrderMessage);
-      setIsCopied(true); // Mark as copied successfully
+      // Try modern Clipboard API first (works on desktop and some mobile browsers)
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(generatedOrderMessage);
+        setIsCopied(true);
 
-      toast.success("✅ Đã copy nội dung đơn hàng thành công! 📋", {
+        toast.success("✅ Đã copy nội dung đơn hàng thành công! 📋", {
+          duration: 3000,
+          style: {
+            background: "#f0fdf4",
+            color: "#166534",
+            border: "1px solid #bbf7d0",
+            borderRadius: "12px",
+            fontSize: "14px",
+            padding: "12px 16px",
+          },
+          iconTheme: {
+            primary: "#10b981",
+            secondary: "#ffffff",
+          },
+        });
+      } else {
+        // Fallback for mobile and older browsers
+        const textArea = document.createElement("textarea");
+        textArea.value = generatedOrderMessage;
+        textArea.style.position = "fixed";
+        textArea.style.left = "-999999px";
+        textArea.style.top = "-999999px";
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+
+        const successful = document.execCommand("copy");
+        document.body.removeChild(textArea);
+
+        if (successful) {
+          setIsCopied(true);
+          toast.success("✅ Đã copy nội dung đơn hàng thành công! 📋", {
+            duration: 3000,
+            style: {
+              background: "#f0fdf4",
+              color: "#166534",
+              border: "1px solid #bbf7d0",
+              borderRadius: "12px",
+              fontSize: "14px",
+              padding: "12px 16px",
+            },
+            iconTheme: {
+              primary: "#10b981",
+              secondary: "#ffffff",
+            },
+          });
+        } else {
+          throw new Error("execCommand failed");
+        }
+      }
+    } catch (err) {
+      console.error("Không thể copy:", err);
+      setIsCopied(false);
+
+      // Show mobile-friendly error with manual copy instructions
+      toast.error(
+        "📱 Không thể tự động copy!\n\n👆 Hãy bấm giữ vào nội dung đơn hàng ở trên để copy thủ công",
+        {
+          duration: 6000,
+          style: {
+            background: "#fef3cd",
+            color: "#8b5a00",
+            border: "1px solid #f6d55c",
+            borderRadius: "12px",
+            fontSize: "13px",
+            padding: "12px 16px",
+            whiteSpace: "pre-line",
+          },
+          iconTheme: {
+            primary: "#f59e0b",
+            secondary: "#ffffff",
+          },
+        }
+      );
+
+      // Show manual copy confirmation option
+      setTimeout(() => {
+        toast(
+          (t) => (
+            <div className="text-center">
+              <p className="text-sm mb-3">📋 Đã copy thủ công thành công?</p>
+              <div className="flex gap-2">
+                <button
+                  onClick={() => {
+                    setIsCopied(true);
+                    toast.dismiss(t.id);
+                    toast.success("✅ Đã xác nhận copy thành công!", {
+                      duration: 2000,
+                    });
+                  }}
+                  className="bg-green-500 text-white px-3 py-1 rounded text-sm hover:bg-green-600"
+                >
+                  ✅ Đã copy
+                </button>
+                <button
+                  onClick={() => toast.dismiss(t.id)}
+                  className="bg-gray-500 text-white px-3 py-1 rounded text-sm hover:bg-gray-600"
+                >
+                  ❌ Chưa copy
+                </button>
+              </div>
+            </div>
+          ),
+          {
+            duration: 10000,
+            style: {
+              background: "#f9fafb",
+              border: "1px solid #e5e7eb",
+              borderRadius: "12px",
+              padding: "16px",
+            },
+          }
+        );
+      }, 1000);
+    }
+  };
+
+  // Manual copy confirmation for mobile users
+  const handleManualCopyConfirm = () => {
+    setIsCopied(true);
+    toast.success(
+      "✅ Đã xác nhận copy thủ công! Bây giờ có thể gửi qua Zalo 🎉",
+      {
         duration: 3000,
         style: {
           background: "#f0fdf4",
@@ -252,27 +376,8 @@ export const OrderForm = () => {
           primary: "#10b981",
           secondary: "#ffffff",
         },
-      });
-    } catch (err) {
-      console.error("Không thể copy:", err);
-      setIsCopied(false); // Mark as copy failed
-
-      toast.error("❌ Không thể copy nội dung! Vui lòng thử lại 😞", {
-        duration: 4000,
-        style: {
-          background: "#fef2f2",
-          color: "#dc2626",
-          border: "1px solid #fecaca",
-          borderRadius: "12px",
-          fontSize: "14px",
-          padding: "12px 16px",
-        },
-        iconTheme: {
-          primary: "#ef4444",
-          secondary: "#ffffff",
-        },
-      });
-    }
+      }
+    );
   };
 
   const handleSendToZalo = () => {
@@ -395,6 +500,17 @@ export const OrderForm = () => {
             {isCopied ? "✅ Đã copy" : "📋 Copy nội dung"}
           </Button>
 
+          {!isCopied && (
+            <Button
+              onClick={handleManualCopyConfirm}
+              variant="outline"
+              className="flex-1 flex items-center justify-center gap-2 transition-all duration-200 transform hover:scale-[1.02] hover:bg-green-50 hover:border-green-200 hover:text-green-600"
+            >
+              <CheckCircle size={18} />
+              📋 Đã copy thủ công
+            </Button>
+          )}
+
           <Button
             onClick={handleSendToZalo}
             disabled={!isCopied}
@@ -410,12 +526,24 @@ export const OrderForm = () => {
         </div>
 
         {!isCopied && (
-          <div className="mt-3 p-3 bg-yellow-50 border border-yellow-200 rounded-lg">
-            <p className="text-sm text-yellow-700 text-center">
-              ⚠️ <strong>Bước 1:</strong> Copy nội dung đơn hàng trước
-              <br />
-              <strong>Bước 2:</strong> Sau đó mới có thể gửi qua Zalo
+          <div className="mt-3 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
+            <p className="text-sm text-yellow-700 text-center mb-2">
+              ⚠️ <strong>Quy trình copy và gửi:</strong>
             </p>
+            <div className="text-xs text-yellow-600 space-y-1">
+              <p>
+                <strong>📱 Trên mobile:</strong> Bấm giữ vào nội dung ở trên →
+                Copy
+              </p>
+              <p>
+                <strong>💻 Trên máy tính:</strong> Bôi đen text → Ctrl+C (hoặc
+                Cmd+C)
+              </p>
+              <p>
+                <strong>✅ Sau khi copy:</strong> Bấm "Đã copy thủ công" để tiếp
+                tục
+              </p>
+            </div>
           </div>
         )}
 
