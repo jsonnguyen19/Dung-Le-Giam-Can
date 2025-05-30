@@ -18,7 +18,7 @@ export const Section = ({
   className = "",
 }: SectionProps) => {
   return (
-    <section id={id} className={`py-8 md:py-16 ${className}`}>
+    <section id={id} className={`py-4 md:py-8 ${className}`}>
       <div className="container mx-auto px-4 md:px-6">
         {(title || subtitle) && (
           <AnimatedDiv
