@@ -56,7 +56,7 @@ export const ZaloChatButton = () => {
       >
         <button
           onClick={handleClick}
-          className={`relative w-16 h-16 bg-gray-300 hover:bg-gray-400 text-gray-700 rounded-full shadow-lg hover:shadow-xl transform transition-all duration-300 flex items-center justify-center group border-2 border-gray-400 hover:border-gray-500 ${
+          className={`relative w-16 h-16 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-full shadow-lg hover:shadow-xl transform transition-all duration-300 flex items-center justify-center group border-2 border-gray-300 hover:border-gray-400 ${
             isAnimating ? "scale-110 animate-bounce" : "hover:scale-105"
           }`}
           title="Chat với chúng tôi qua Zalo"
