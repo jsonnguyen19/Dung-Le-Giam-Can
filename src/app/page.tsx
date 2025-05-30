@@ -2,8 +2,13 @@ import { Metadata } from "next";
 import { HeroSection } from "@/components/home/HeroSection";
 import { TrustFactors } from "@/components/home/TrustFactors";
 import { AboutSection } from "@/components/home/AboutSection";
+import { HowItWorksSection } from "@/components/home/HowItWorksSection";
 import { FeaturedProducts } from "@/components/home/FeaturedProducts";
+import { ProductBenefitsSection } from "@/components/home/ProductBenefitsSection";
+import { ResultsSection } from "@/components/home/ResultsSection";
 import { Testimonials } from "@/components/home/Testimonials";
+import { GuaranteeSection } from "@/components/home/GuaranteeSection";
+import { FAQSection } from "@/components/home/FAQSection";
 import { RecentBlogs } from "@/components/home/RecentBlogs";
 import { OrderSection } from "@/components/home/OrderSection";
 
@@ -19,8 +24,13 @@ export default function HomePage() {
       <HeroSection />
       <TrustFactors />
       <AboutSection />
+      <HowItWorksSection />
       <FeaturedProducts />
+      <ProductBenefitsSection />
+      <ResultsSection />
       <Testimonials />
+      <GuaranteeSection />
+      <FAQSection />
       <RecentBlogs />
       <OrderSection />
     </>
