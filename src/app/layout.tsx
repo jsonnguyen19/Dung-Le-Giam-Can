@@ -2,6 +2,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Header, Footer } from "@/components/common/Layout";
 import { PageNavigation } from "@/components/common/Navigation";
+import { ZaloChatButton } from "@/components/common/ZaloChatButton";
 import { Inter } from "next/font/google";
 import { StoreProvider } from "@/store/provider";
 import { AddToCartProvider } from "@/context/AddToCartContext";
@@ -95,6 +96,7 @@ export default function RootLayout({
             <PageNavigation />
             <main className="flex-grow">{children}</main>
             <Footer />
+            <ZaloChatButton />
           </AddToCartProvider>
         </StoreProvider>
       </body>
