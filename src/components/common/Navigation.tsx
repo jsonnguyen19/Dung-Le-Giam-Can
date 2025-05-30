@@ -64,6 +64,8 @@ export const PageNavigation = () => {
                   pathSegments[0] === "products"
                 ) {
                   router.push("/products");
+                  // Cập nhật URL để hiển thị ở thanh địa chỉ
+                  window.history.pushState({}, "", "/products");
                 }
                 // For blog details, go to blog page
                 else if (
@@ -71,6 +73,8 @@ export const PageNavigation = () => {
                   pathSegments[0] === "blog"
                 ) {
                   router.push("/blog");
+                  // Cập nhật URL để hiển thị ở thanh địa chỉ
+                  window.history.pushState({}, "", "/blog");
                 }
                 // Otherwise just go back
                 else {
@@ -118,6 +122,12 @@ export const PageNavigation = () => {
               <Link
                 href="/"
                 className="text-gray-500 hover:text-pink font-medium"
+                onClick={(e) => {
+                  e.preventDefault();
+                  router.push("/");
+                  // Đảm bảo URL luôn hiển thị đúng
+                  window.history.pushState({}, "", "/");
+                }}
               >
                 Trang chủ
               </Link>
@@ -162,6 +172,14 @@ export const PageNavigation = () => {
                       <Link
                         href={path}
                         className="text-gray-500 hover:text-pink"
+                        onClick={(e) => {
+                          // Nếu liên kết chứa hash tag, giữ nó lại trong URL
+                          if (path.includes("#")) {
+                            e.preventDefault();
+                            router.push(path);
+                            window.history.pushState({}, "", path);
+                          }
+                        }}
                       >
                         {displayName}
                       </Link>

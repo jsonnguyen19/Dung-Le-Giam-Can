@@ -3,27 +3,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import { useRouter, usePathname } from "next/navigation";
 import { socialLinks } from "@/content/contact";
 import { useCartStore } from "@/store/cartStore";
 import { useResponsive } from "@/hooks/useResponsive";
 import { useIsClient } from "@/hooks/useIsClient";
-
-const handleNavClick = (
-  e: React.MouseEvent<HTMLAnchorElement>,
-  href: string
-) => {
-  if (href === "/") {
-    e.preventDefault();
-    window.scrollTo({ top: 0, behavior: "smooth" });
-    // Cập nhật URL sau khi scroll xong
-    setTimeout(() => {
-      window.history.pushState({}, "", href);
-    }, 0);
-  } else if (href.startsWith("/#")) {
-    // Đã có CSS scroll-behavior: smooth xử lý
-    return;
-  }
-};
 
 const navigation = [
   { name: "Trang chủ", href: "/" },
@@ -35,11 +19,48 @@ const navigation = [
 ];
 
 export const Header = () => {
+  const router = useRouter();
+  const pathname = usePathname();
   const items = useCartStore((state) => state.items);
   const totalItems = items.reduce((total, item) => total + item.quantity, 0);
   const { isMobile } = useResponsive();
   const isClient = useIsClient();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  // Handle navigation click with Next.js router
+  const handleNavClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string
+  ) => {
+    if (href === "/") {
+      e.preventDefault();
+
+      // If already on homepage, just scroll to top
+      if (pathname === "/") {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      } else {
+        // If on another page, navigate to homepage
+        router.push("/");
+      }
+    } else if (href.startsWith("/#")) {
+      // Handle hash links
+      e.preventDefault();
+
+      if (pathname === "/") {
+        // If already on homepage, just scroll to the element
+        const id = href.substring(2);
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+          // Cập nhật URL để hiển thị hash
+          window.history.pushState({}, "", href);
+        }
+      } else {
+        // If on another page, navigate to homepage with hash
+        router.push(href);
+      }
+    }
+  };
 
   // Close menu when clicking outside or on navigation
   useEffect(() => {
