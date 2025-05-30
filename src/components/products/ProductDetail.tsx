@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { useRef } from "react";
 import { Button } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
 import { ProductCard } from "@/components/products/ProductCard";
@@ -8,6 +9,7 @@ import { Product } from "@/content/products";
 import { useCartStore } from "@/store/cartStore";
 import { formatPrice } from "@/lib/formatPrice";
 import { AnimatedDiv } from "@/components/motion/WithAnimation";
+import { useAddToCartContext } from "@/context/AddToCartContext";
 
 interface ProductDetailProps {
   product: Product;
@@ -18,6 +20,32 @@ export const ProductDetail = ({
   product,
   relatedProducts,
 }: ProductDetailProps) => {
+  const addToCartButtonRef = useRef<HTMLButtonElement>(null);
+  const { triggerAddToCart } = useAddToCartContext();
+
+  const handleAddToCart = () => {
+    if (addToCartButtonRef.current) {
+      useCartStore.getState().addItem(
+        {
+          id: product.id,
+          name: product.name,
+          price: product.price,
+          image: product.images[0],
+        },
+        () => {
+          // Trigger animation after item is added to cart
+          if (addToCartButtonRef.current) {
+            triggerAddToCart(
+              product.id,
+              product.images[0],
+              product.name,
+              addToCartButtonRef.current
+            );
+          }
+        }
+      );
+    }
+  };
   return (
     <>
       <Section>
@@ -91,14 +119,8 @@ export const ProductDetail = ({
 
             <div className="pt-6 border-t">
               <Button
-                onClick={() => {
-                  useCartStore.getState().addItem({
-                    id: product.id,
-                    name: product.name,
-                    price: product.price,
-                    image: product.images[0],
-                  });
-                }}
+                ref={addToCartButtonRef}
+                onClick={handleAddToCart}
                 size="lg"
                 className="w-full flex items-center justify-center gap-2"
               >
@@ -129,6 +151,7 @@ export const ProductDetail = ({
             {relatedProducts.map((product) => (
               <ProductCard
                 key={product.id}
+                id={product.id}
                 image={product.images[0]}
                 name={product.name}
                 price={product.price}

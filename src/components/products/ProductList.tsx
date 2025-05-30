@@ -76,6 +76,7 @@ export const ProductList = ({ products }: ProductListProps) => {
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
               <ProductCard
+                id={product.id}
                 image={product.images[0]}
                 name={product.name}
                 price={product.price}

@@ -14,7 +14,7 @@ interface CartItem {
 
 export interface CartStore {
   items: CartItem[];
-  addItem: (item: Omit<CartItem, "quantity">) => void;
+  addItem: (item: Omit<CartItem, "quantity">, onSuccess?: () => void) => void;
   removeItem: (id: string) => void;
   updateQuantity: (id: string, quantity: number) => void;
   clearCart: () => void;
@@ -26,7 +26,7 @@ export const useCartStore = create<CartStore>()(
   persist(
     (set, get) => ({
       items: [],
-      addItem: (item) => {
+      addItem: (item, onSuccess) => {
         set((state) => {
           const existingItem = state.items.find((i) => i.id === item.id);
           if (existingItem) {
@@ -38,6 +38,11 @@ export const useCartStore = create<CartStore>()(
           }
           return { items: [...state.items, { ...item, quantity: 1 }] };
         });
+
+        // Call success callback after state update
+        if (onSuccess) {
+          setTimeout(onSuccess, 0);
+        }
       },
       removeItem: (id) => {
         set((state) => ({
@@ -66,8 +71,8 @@ export const useCartStore = create<CartStore>()(
     }),
     {
       name: "shopping-cart",
-      storage: createJSONStorage(() => sessionStorage),
-      skipHydration: true,
+      storage: createJSONStorage(() => localStorage),
+      partialize: (state) => ({ items: state.items }),
     }
   )
 );

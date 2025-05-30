@@ -5,6 +5,7 @@ import {
   HTMLAttributes,
   ReactNode,
   CSSProperties,
+  forwardRef,
 } from "react";
 import { motion, LazyMotion, domAnimation } from "framer-motion";
 import { useIsClient } from "@/hooks/useIsClient";
@@ -89,23 +90,31 @@ export const AnimatedArticle = ({
   );
 };
 
-export const AnimatedButton = ({
-  children,
-  ...props
-}: MotionButtonProps & WithChildrenProps) => {
+export const AnimatedButton = forwardRef<
+  HTMLButtonElement,
+  MotionButtonProps & WithChildrenProps
+>(({ children, ...props }, ref) => {
   const isClient = useIsClient();
 
   if (!isClient) {
     const cleanProps = cleanMotionProps(props);
-    return <button {...cleanProps}>{children}</button>;
+    return (
+      <button ref={ref} {...cleanProps}>
+        {children}
+      </button>
+    );
   }
 
   return (
     <LazyMotion features={domAnimation}>
-      <motion.button {...props}>{children}</motion.button>
+      <motion.button ref={ref} {...props}>
+        {children}
+      </motion.button>
     </LazyMotion>
   );
-};
+});
+
+AnimatedButton.displayName = "AnimatedButton";
 
 export const AnimatedHeading = ({
   children,

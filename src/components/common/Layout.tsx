@@ -8,6 +8,7 @@ import { socialLinks } from "@/content/contact";
 import { useCartStore } from "@/store/cartStore";
 import { useResponsive } from "@/hooks/useResponsive";
 import { useIsClient } from "@/hooks/useIsClient";
+import { useCartIconAnimation } from "@/hooks/useCartIconAnimation";
 
 const navigation = [
   { name: "Trang chủ", href: "/" },
@@ -26,6 +27,20 @@ export const Header = () => {
   const { isMobile } = useResponsive();
   const isClient = useIsClient();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [hasHydrated, setHasHydrated] = useState(false);
+  const { isAnimating, triggerAnimation } = useCartIconAnimation();
+
+  // Wait for hydration
+  useEffect(() => {
+    setHasHydrated(true);
+  }, []);
+
+  // Listen for cart changes and trigger animation
+  useEffect(() => {
+    if (hasHydrated && totalItems > 0) {
+      triggerAnimation();
+    }
+  }, [totalItems, triggerAnimation, hasHydrated]);
 
   // Handle navigation click with Next.js router
   const handleNavClick = (
@@ -133,7 +148,9 @@ export const Header = () => {
           ))}
           <Link
             href="/cart"
-            className="relative text-pink hover:text-pinkDark transition-colors"
+            className={`relative text-pink hover:text-pinkDark transition-all duration-300 ${
+              isAnimating ? "scale-110" : ""
+            }`}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -141,7 +158,9 @@ export const Header = () => {
               viewBox="0 0 24 24"
               strokeWidth={1.8}
               stroke="currentColor"
-              className="w-6 h-6"
+              className={`w-6 h-6 transition-transform duration-300 ${
+                isAnimating ? "animate-bounce" : ""
+              }`}
             >
               <path
                 strokeLinecap="round"
@@ -149,8 +168,12 @@ export const Header = () => {
                 d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"
               />
             </svg>
-            {totalItems > 0 && (
-              <span className="absolute -top-2 -right-2 bg-pink text-white text-xs font-bold rounded-full min-w-[20px] h-5 px-1 flex items-center justify-center">
+            {hasHydrated && totalItems > 0 && (
+              <span
+                className={`absolute -top-2 -right-2 bg-pink text-white text-xs font-bold rounded-full min-w-[20px] h-5 px-1 flex items-center justify-center transition-all duration-300 ${
+                  isAnimating ? "scale-125 animate-pulse" : ""
+                }`}
+              >
                 {totalItems}
               </span>
             )}
@@ -217,7 +240,9 @@ export const Header = () => {
                 {/* Cart Link in Mobile Menu */}
                 <Link
                   href="/cart"
-                  className="flex items-center justify-between text-pink hover:text-pinkDark transition-colors py-2 text-lg font-medium border-t border-gray-200 pt-4 mt-4"
+                  className={`flex items-center justify-between text-pink hover:text-pinkDark transition-all duration-300 py-2 text-lg font-medium border-t border-gray-200 pt-4 mt-4 ${
+                    isAnimating ? "scale-105" : ""
+                  }`}
                 >
                   <div className="flex items-center space-x-3">
                     <svg
@@ -226,18 +251,24 @@ export const Header = () => {
                       viewBox="0 0 24 24"
                       strokeWidth={1.8}
                       stroke="currentColor"
-                      className="w-6 h-6"
+                      className={`w-6 h-6 transition-transform duration-300 ${
+                        isAnimating ? "animate-bounce" : ""
+                      }`}
                     >
                       <path
                         strokeLinecap="round"
                         strokeLinejoin="round"
-                        d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"
+                        d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a .375.375 0 11-.75 0 .375.375 0 01.75 0z"
                       />
                     </svg>
                     <span>Giỏ hàng</span>
                   </div>
-                  {totalItems > 0 && (
-                    <span className="bg-pink text-white text-sm rounded-full w-6 h-6 flex items-center justify-center font-medium">
+                  {hasHydrated && totalItems > 0 && (
+                    <span
+                      className={`bg-pink text-white text-sm rounded-full w-6 h-6 flex items-center justify-center font-medium transition-all duration-300 ${
+                        isAnimating ? "scale-125 animate-pulse" : ""
+                      }`}
+                    >
                       {totalItems}
                     </span>
                   )}

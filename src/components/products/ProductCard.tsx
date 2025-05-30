@@ -2,9 +2,14 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useRef } from "react";
 import { AnimatedDiv } from "@/components/motion/WithAnimation";
+import { useCartStore } from "@/store/cartStore";
+import { useAddToCartContext } from "@/context/AddToCartContext";
+import { formatPrice } from "@/lib/formatPrice";
 
 interface ProductCardProps {
+  id: string;
   image: string;
   name: string;
   price: number;
@@ -13,12 +18,37 @@ interface ProductCardProps {
 }
 
 export const ProductCard = ({
+  id,
   image,
   name,
   price,
   description,
   href,
 }: ProductCardProps) => {
+  const addToCartButtonRef = useRef<HTMLButtonElement>(null);
+  const { triggerAddToCart } = useAddToCartContext();
+
+  const handleAddToCart = (e: React.MouseEvent) => {
+    e.preventDefault(); // Prevent navigation when clicking add to cart
+    e.stopPropagation();
+
+    if (addToCartButtonRef.current) {
+      useCartStore.getState().addItem(
+        {
+          id,
+          name,
+          price,
+          image,
+        },
+        () => {
+          // Trigger animation after item is added to cart
+          if (addToCartButtonRef.current) {
+            triggerAddToCart(id, image, name, addToCartButtonRef.current);
+          }
+        }
+      );
+    }
+  };
   return (
     <Link href={href}>
       <AnimatedDiv
@@ -40,13 +70,13 @@ export const ProductCard = ({
             {description}
           </p>
           <div className="flex items-center justify-between">
-            <span className="text-pink font-bold">
-              {new Intl.NumberFormat("vi-VN", {
-                style: "currency",
-                currency: "VND",
-              }).format(price)}
-            </span>
-            <button className="text-pink hover:text-pinkDark transition-colors">
+            <span className="text-pink font-bold">{formatPrice(price)}</span>
+            <button
+              ref={addToCartButtonRef}
+              onClick={handleAddToCart}
+              className="text-pink hover:text-pinkDark transition-colors p-2 rounded-full hover:bg-pink/10"
+              title="Thêm vào giỏ hàng"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"

@@ -1,6 +1,6 @@
 "use client";
 
-import { ReactNode, useRef } from "react";
+import { ReactNode, useRef, useEffect } from "react";
 import { type CartStore, useCartStore } from "./cartStore";
 import { createContext, useContext } from "react";
 
@@ -23,6 +23,11 @@ export interface StoreProviderProps {
 export function StoreProvider({ children }: StoreProviderProps) {
   const store = useCartStore();
   const storeRef = useRef<CartStore>();
+
+  useEffect(() => {
+    // Hydrate the store from localStorage when component mounts
+    useCartStore.persist.rehydrate();
+  }, []);
 
   if (!storeRef.current) {
     storeRef.current = store;

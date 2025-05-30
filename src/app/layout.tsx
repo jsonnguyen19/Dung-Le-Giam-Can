@@ -4,6 +4,7 @@ import { Header, Footer } from "@/components/common/Layout";
 import { PageNavigation } from "@/components/common/Navigation";
 import { Inter } from "next/font/google";
 import { StoreProvider } from "@/store/provider";
+import { AddToCartProvider } from "@/context/AddToCartContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -29,12 +30,14 @@ export default function RootLayout({
     <html lang="vi" className={inter.className}>
       <body className="min-h-screen flex flex-col">
         <StoreProvider>
-          {/* Header is fixed positioned */}
-          <Header />
-          {/* PageNavigation handles its own spacing with mt-16 */}
-          <PageNavigation />
-          <main className="flex-grow">{children}</main>
-          <Footer />
+          <AddToCartProvider>
+            {/* Header is fixed positioned */}
+            <Header />
+            {/* PageNavigation handles its own spacing with mt-16 */}
+            <PageNavigation />
+            <main className="flex-grow">{children}</main>
+            <Footer />
+          </AddToCartProvider>
         </StoreProvider>
       </body>
     </html>
