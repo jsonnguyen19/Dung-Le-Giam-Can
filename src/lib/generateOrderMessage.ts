@@ -18,7 +18,19 @@ export const generateOrderMessage = ({
   items,
 }: OrderFormData): string => {
   const itemsList = items
-    .map((item) => `${item.name} (${item.quantity} cái)`)
+    .map((item) => {
+      const itemTotal = item.price * item.quantity;
+      const formattedPrice = new Intl.NumberFormat("vi-VN", {
+        style: "currency",
+        currency: "VND",
+      }).format(item.price);
+      const formattedItemTotal = new Intl.NumberFormat("vi-VN", {
+        style: "currency",
+        currency: "VND",
+      }).format(itemTotal);
+
+      return `${item.name} (${item.quantity} cái × ${formattedPrice} = ${formattedItemTotal})`;
+    })
     .join("\n- ");
 
   const totalAmount = items.reduce(
