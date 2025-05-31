@@ -2,7 +2,10 @@
 
 import React, { createContext, useContext, ReactNode } from "react";
 import { useAddToCartAnimation } from "@/hooks/useAddToCartAnimation";
-import { AddToCartAnimation } from "@/components/motion/AddToCartAnimation";
+import {
+  AddToCartAnimation,
+  SuccessMessage,
+} from "@/components/motion/AddToCartAnimation";
 
 interface AddToCartContextType {
   triggerAddToCart: (
@@ -32,8 +35,13 @@ interface AddToCartProviderProps {
 }
 
 export const AddToCartProvider = ({ children }: AddToCartProviderProps) => {
-  const { flyingItems, addFlyingItem, removeFlyingItem } =
-    useAddToCartAnimation();
+  const {
+    flyingItems,
+    successItems,
+    addFlyingItem,
+    removeFlyingItem,
+    removeSuccessItem,
+  } = useAddToCartAnimation();
 
   const triggerAddToCart = (
     productId: string,
@@ -51,6 +59,14 @@ export const AddToCartProvider = ({ children }: AddToCartProviderProps) => {
         flyingItems={flyingItems}
         onItemComplete={removeFlyingItem}
       />
+      {successItems.map((item) => (
+        <SuccessMessage
+          key={item.id}
+          show={true}
+          productName={item.name}
+          onComplete={() => removeSuccessItem(item.id)}
+        />
+      ))}
     </AddToCartContext.Provider>
   );
 };
