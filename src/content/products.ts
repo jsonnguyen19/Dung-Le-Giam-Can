@@ -10,6 +10,12 @@ export interface Product {
   benefits: string[];
   category: "weight-loss" | "supplement" | "detox";
   featured?: boolean;
+  // Thông tin uy tín
+  soldCount?: number; // Số lượng đã bán
+  rating?: number; // Đánh giá (1-5 sao)
+  reviewCount?: number; // Số lượng đánh giá
+  badges?: string[]; // Các huy hiệu như "Bestseller", "Chính hãng", etc.
+  verified?: boolean; // Sản phẩm được xác thực
 }
 
 export const products: Product[] = [
@@ -37,6 +43,11 @@ export const products: Product[] = [
     ],
     category: "weight-loss",
     featured: true,
+    soldCount: 2450,
+    rating: 4.8,
+    reviewCount: 156,
+    badges: ["Bestseller", "Chính hãng"],
+    verified: true,
   },
   {
     id: "2",
@@ -62,6 +73,11 @@ export const products: Product[] = [
     ],
     category: "weight-loss",
     featured: true,
+    soldCount: 1890,
+    rating: 4.7,
+    reviewCount: 98,
+    badges: ["Hiệu quả cao", "Chính hãng"],
+    verified: true,
   },
   {
     id: "3",
@@ -86,6 +102,11 @@ export const products: Product[] = [
       "Tăng cường miễn dịch",
     ],
     category: "weight-loss",
+    soldCount: 1230,
+    rating: 4.5,
+    reviewCount: 67,
+    badges: ["Vị ngon", "An toàn"],
+    verified: true,
   },
   {
     id: "4",
@@ -111,6 +132,11 @@ export const products: Product[] = [
     ],
     category: "weight-loss",
     featured: true,
+    soldCount: 1680,
+    rating: 4.6,
+    reviewCount: 89,
+    badges: ["Cao cấp", "Chính hãng"],
+    verified: true,
   },
   {
     id: "5",
@@ -135,6 +161,11 @@ export const products: Product[] = [
       "Detox tự nhiên",
     ],
     category: "weight-loss",
+    soldCount: 980,
+    rating: 4.4,
+    reviewCount: 52,
+    badges: ["Thảo dược", "An toàn"],
+    verified: true,
   },
   {
     id: "6",
@@ -160,6 +191,11 @@ export const products: Product[] = [
     ],
     category: "weight-loss",
     featured: true,
+    soldCount: 3200,
+    rating: 4.9,
+    reviewCount: 245,
+    badges: ["Bestseller", "Hương vị tuyệt vời"],
+    verified: true,
   },
   {
     id: "7",
@@ -184,6 +220,11 @@ export const products: Product[] = [
       "Hỗ trợ giảm cân",
     ],
     category: "detox",
+    soldCount: 1560,
+    rating: 4.3,
+    reviewCount: 74,
+    badges: ["Detox hiệu quả", "Tự nhiên"],
+    verified: true,
   },
   {
     id: "8",
@@ -203,6 +244,11 @@ export const products: Product[] = [
     ],
     category: "weight-loss",
     featured: true,
+    soldCount: 2180,
+    rating: 4.7,
+    reviewCount: 134,
+    badges: ["Keto diet", "Hiệu quả nhanh"],
+    verified: true,
   },
   {
     id: "9",
@@ -227,6 +273,11 @@ export const products: Product[] = [
       "Tăng cường miễn dịch",
     ],
     category: "weight-loss",
+    soldCount: 1340,
+    rating: 4.2,
+    reviewCount: 61,
+    badges: ["Thảo dược", "Tự nhiên"],
+    verified: true,
   },
   {
     id: "10",
@@ -251,6 +302,11 @@ export const products: Product[] = [
       "Chống oxy hóa",
     ],
     category: "weight-loss",
+    soldCount: 1120,
+    rating: 4.4,
+    reviewCount: 58,
+    badges: ["Nâng cấp", "Hiệu quả cao"],
+    verified: true,
   },
   {
     id: "11",
@@ -278,6 +334,11 @@ export const products: Product[] = [
     ],
     category: "weight-loss",
     featured: true,
+    soldCount: 890,
+    rating: 4.8,
+    reviewCount: 72,
+    badges: ["Công nghệ Nhật", "Làm đẹp"],
+    verified: true,
   },
   {
     id: "12",
@@ -305,6 +366,11 @@ export const products: Product[] = [
     ],
     category: "weight-loss",
     featured: true,
+    soldCount: 1520,
+    rating: 4.9,
+    reviewCount: 112,
+    badges: ["VIP", "Siêu tốc"],
+    verified: true,
   },
   {
     id: "13",
@@ -331,6 +397,11 @@ export const products: Product[] = [
     ],
     category: "weight-loss",
     featured: true,
+    soldCount: 720,
+    rating: 4.9,
+    reviewCount: 87,
+    badges: ["Premium", "Hiệu quả 99%"],
+    verified: true,
   },
   {
     id: "14",
@@ -355,6 +426,11 @@ export const products: Product[] = [
       "Chống stress",
     ],
     category: "weight-loss",
+    soldCount: 650,
+    rating: 4.6,
+    reviewCount: 43,
+    badges: ["Thông minh", "Đa năng"],
+    verified: true,
   },
 ];
 

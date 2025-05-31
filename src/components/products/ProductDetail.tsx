@@ -160,6 +160,11 @@ export const ProductDetail = ({
                   price={product.price}
                   description={product.description}
                   href={`/products/${product.slug}`}
+                  soldCount={product.soldCount}
+                  rating={product.rating}
+                  reviewCount={product.reviewCount}
+                  badges={product.badges}
+                  verified={product.verified}
                 />
               ))}
           </div>
