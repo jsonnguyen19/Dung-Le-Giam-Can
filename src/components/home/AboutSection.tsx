@@ -52,16 +52,16 @@ export const AboutSection = () => {
           <div className="space-y-4">
             <div className="relative h-48 rounded-lg overflow-hidden">
               <Image
-                src="/images/productsByAboutme/about-01.jpg"
-                alt="Sản phẩm giảm cân 1"
+                src="/images/aboutme/baschi.jpg"
+                alt="Sản phẩm Baschi giảm cân"
                 fill
                 className="object-cover"
               />
             </div>
             <div className="relative h-64 rounded-lg overflow-hidden">
               <Image
-                src="/images/productsByAboutme/about-02.jpg"
-                alt="Sản phẩm giảm cân 2"
+                src="/images/aboutme/giam-can-co-dia-nho.jpg"
+                alt="Sản phẩm giảm cân có địa chỉ rõ ràng"
                 fill
                 className="object-cover"
               />
@@ -70,8 +70,8 @@ export const AboutSection = () => {
           <div className="relative h-full">
             <div className="relative h-full rounded-lg overflow-hidden">
               <Image
-                src="/images/productsByAboutme/about-03.jpg"
-                alt="Sản phẩm giảm cân 3"
+                src="/images/aboutme/wisdom.jpg"
+                alt="Sản phẩm Wisdom"
                 fill
                 className="object-cover"
               />
