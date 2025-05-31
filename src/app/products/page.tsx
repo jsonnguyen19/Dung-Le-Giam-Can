@@ -1,6 +1,7 @@
 import { ProductList } from "@/components/products/ProductList";
 import { products } from "@/content/products";
 import { Metadata } from "next";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   title: "Sản phẩm giảm cân an toàn | Dung Lê Giảm Cân",
@@ -30,6 +31,21 @@ export const metadata: Metadata = {
   },
 };
 
+function ProductListFallback() {
+  return (
+    <div className="container mx-auto px-4 py-8">
+      <div className="text-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-orange-500 mx-auto mb-4"></div>
+        <p className="text-gray-600">Đang tải sản phẩm...</p>
+      </div>
+    </div>
+  );
+}
+
 export default function ProductsPage() {
-  return <ProductList products={products} />;
+  return (
+    <Suspense fallback={<ProductListFallback />}>
+      <ProductList products={products} />
+    </Suspense>
+  );
 }
