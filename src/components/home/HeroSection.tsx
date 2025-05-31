@@ -19,7 +19,7 @@ export const HeroSection = () => {
   const swiperRef = useRef(null);
 
   return (
-    <section className="relative h-screen min-h-[600px] max-h-[800px]">
+    <section className="relative -mt-16 h-screen min-h-[600px] max-h-[800px]">
       <Swiper
         ref={swiperRef}
         modules={[Autoplay]}

@@ -72,7 +72,7 @@ export const PageNavigation = () => {
     }
 
     return (
-      <div className="bg-white border-b shadow-sm mt-16 sticky top-16 z-10">
+      <div className="bg-white border-b shadow-sm sticky top-16 z-10">
         <div className="container mx-auto px-4">
           <div className="flex items-center py-3.5">
             <button
@@ -135,7 +135,7 @@ export const PageNavigation = () => {
 
   // For desktop, show breadcrumbs
   return (
-    <div className="bg-white border-b shadow-sm py-3 md:mt-[72px] sticky top-16 z-10">
+    <div className="bg-white border-b shadow-sm py-3 sticky top-16 z-10">
       <div className="container mx-auto px-4">
         <nav className="text-sm" aria-label="Breadcrumb">
           <ol className="list-none p-0 inline-flex items-center">
