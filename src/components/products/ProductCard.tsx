@@ -8,6 +8,7 @@ import { AnimatedDiv } from "@/components/motion/WithAnimation";
 import { useCartStore } from "@/store/cartStore";
 import { useAddToCartContext } from "@/context/AddToCartContext";
 import { formatPrice } from "@/lib/formatPrice";
+import { formatSoldCount } from "@/lib/formatNumber";
 
 interface ProductCardProps {
   id: string;
@@ -108,7 +109,7 @@ export const ProductCard = ({
           {/* Sold Count */}
           {soldCount && (
             <div className="absolute bottom-2 right-2 bg-black/70 text-white text-xs px-2 py-1 rounded-full">
-              Đã bán {soldCount.toLocaleString()}+
+              Đã bán {formatSoldCount(soldCount)}+
             </div>
           )}
         </div>

@@ -11,6 +11,7 @@ import { Product } from "@/content/products";
 import { getReviewsByProductId, getAverageRating } from "@/content/reviews";
 import { useCartStore } from "@/store/cartStore";
 import { formatPrice } from "@/lib/formatPrice";
+import { formatSoldCount } from "@/lib/formatNumber";
 import { AnimatedDiv } from "@/components/motion/WithAnimation";
 import { useAddToCartContext } from "@/context/AddToCartContext";
 
@@ -149,7 +150,7 @@ export const ProductDetail = ({
                         d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
                       />
                     </svg>
-                    Đã bán {product.soldCount.toLocaleString()}+
+                    Đã bán {formatSoldCount(product.soldCount)}+
                   </div>
                 )}
 
