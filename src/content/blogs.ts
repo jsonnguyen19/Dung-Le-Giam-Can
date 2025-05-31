@@ -12,6 +12,142 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    id: "6",
+    slug: "keto-slim-giai-phap-giam-can",
+    title: "Keto Slim - Giải Pháp Giảm Cân Tự Nhiên Từ Thailand",
+    excerpt:
+      "Tìm hiểu về Keto Slim - sản phẩm giảm cân tự nhiên được chiết xuất từ thảo dược Thailand, giúp đốt mỡ hiệu quả và an toàn cho sức khỏe.",
+    content: `# Keto Slim - Giải Pháp Giảm Cân Tự Nhiên Từ Thailand
+
+Trong xu hướng tìm kiếm những phương pháp giảm cân tự nhiên và an toàn, Keto Slim đã nổi lên như một giải pháp đáng chú ý. Sản phẩm này không chỉ giúp giảm cân hiệu quả mà còn đảm bảo an toàn cho sức khỏe người sử dụng.
+
+## Keto Slim là gì?
+
+Keto Slim là sản phẩm hỗ trợ giảm cân được chiết xuất từ các thảo dược tự nhiên của Thailand. Sản phẩm được nghiên cứu và phát triển dựa trên nguyên lý của chế độ ăn Ketogenic - một phương pháp giảm cân được khoa học chứng minh hiệu quả.
+
+### Thành phần chính:
+- **Garcinia Cambogia**: Ức chế cảm giác thèm ăn, ngăn chặn quá trình tích tụ mỡ
+- **Green Coffee Bean**: Tăng cường trao đổi chất, đốt cháy calo
+- **L-Carnitine**: Chuyển hóa mỡ thành năng lượng
+- **Chitosan**: Ngăn chặn hấp thụ chất béo từ thức ăn
+- **Chromium**: Kiểm soát đường huyết, giảm cảm giác thèm đồ ngọt
+
+## Cơ chế hoạt động
+
+Keto Slim hoạt động theo 4 cơ chế chính:
+
+### 1. Đẩy nhanh quá trình Ketosis
+- Giúp cơ thể chuyển từ đốt glucose sang đốt mỡ
+- Sản sinh ketone để cung cấp năng lượng
+- Duy trì trạng thái đốt mỡ liên tục
+
+### 2. Ức chế cảm giác thèm ăn
+- Giảm hormone ghrelin (hormone gây đói)
+- Tăng cảm giác no lâu hơn
+- Kiểm soát lượng calo nạp vào
+
+### 3. Tăng cường trao đổi chất
+- Kích hoạt quá trình sinh nhiệt
+- Tăng tiêu hao năng lượng cơ bản
+- Đốt cháy mỡ ngay cả khi nghỉ ngơi
+
+### 4. Ngăn chặn tích tụ mỡ mới
+- Ức chế enzyme tạo mỡ
+- Chuyển carb thành năng lượng thay vì mỡ
+- Giảm tích tụ mỡ vùng bụng
+
+## Lợi ích nổi bật
+
+### Giảm cân hiệu quả
+- Giảm 3-5kg trong tháng đầu
+- Giảm mỡ bụng rõ rệt
+- Cải thiện tỷ lệ cơ/mỡ
+
+### An toàn cho sức khỏe
+- 100% thành phần tự nhiên
+- Không gây tác dụng phụ
+- Được kiểm định chất lượng
+
+### Duy trì năng lượng
+- Không gây mệt mỏi
+- Tăng cường sự tỉnh táo
+- Cải thiện tâm trạng
+
+### Dễ sử dụng
+- Dạng viên nang tiện lợi
+- Không cần thay đổi chế độ ăn drastically
+- Phù hợp với lịch trình bận rộn
+
+## Hướng dẫn sử dụng
+
+### Liều lượng khuyến nghị:
+- **Tuần 1-2**: 1 viên trước bữa sáng 30 phút
+- **Tuần 3-4**: 2 viên/ngày (sáng và trưa)
+- **Duy trì**: Theo khuyến nghị của chuyên gia
+
+### Thời điểm sử dụng tốt nhất:
+- Trước bữa ăn 30 phút
+- Uống với nước ấm
+- Tránh dùng trước khi ngủ
+
+### Lưu ý quan trọng:
+- Uống đủ nước (2-3 lít/ngày)
+- Kết hợp vận động nhẹ
+- Duy trì chế độ ăn cân bằng
+
+## Ai nên sử dụng Keto Slim?
+
+### Phù hợp với:
+- Người muốn giảm cân tự nhiên
+- Những ai từng thất bại với các phương pháp khác
+- Người bận rộn, ít thời gian tập luyện
+- Muốn giảm mỡ bụng cứng đầu
+
+### Không nên sử dụng:
+- Phụ nữ mang thai, cho con bú
+- Trẻ em dưới 18 tuổi
+- Người có bệnh lý mãn tính
+- Đang dùng thuốc kê đơn
+
+## Kết quả thực tế từ người dùng
+
+### Chị Minh Anh (35 tuổi, TP.HCM):
+*"Sau 2 tháng sử dụng Keto Slim, tôi đã giảm được 8kg. Điều tuyệt vời nhất là không bị mệt mỏi hay đói như các sản phẩm khác."*
+
+### Anh Thanh Nam (42 tuổi, Hà Nội):
+*"Mỡ bụng của tôi giảm rõ rệt sau 6 tuần. Bạn bè đều khen tôi trông trẻ trung và khỏe mạnh hơn."*
+
+### Chị Thu Hằng (28 tuổi, Đà Nẵng):
+*"Từ size XL xuống size M, tôi cảm thấy tự tin hơn rất nhiều. Keto Slim thật sự là người bạn đồng hành tuyệt vời."*
+
+## Tại sao chọn Keto Slim?
+
+### 1. Xuất xứ uy tín
+- Sản xuất tại Thailand với công nghệ hiện đại
+- Đạt tiêu chuẩn GMP quốc tế
+- Được FDA Thailand chứng nhận
+
+### 2. Hiệu quả đã được chứng minh
+- Hơn 100,000 người sử dụng thành công
+- Tỷ lệ hài lòng 95%
+- Kết quả thấy rõ sau 2 tuần
+
+### 3. Cam kết chất lượng
+- Bảo hành 100% hoàn tiền nếu không hiệu quả
+- Hỗ trợ tư vấn 24/7
+- Giao hàng toàn quốc
+
+## Kết luận
+
+Keto Slim không chỉ là một sản phẩm giảm cân, mà còn là người bạn đồng hành giúp bạn xây dựng lối sống khỏe mạnh. Với thành phần tự nhiên, cơ chế hoạt động khoa học và kết quả được chứng minh, Keto Slim xứng đáng là lựa chọn hàng đầu cho hành trình giảm cân của bạn.
+
+*Liên hệ ngay hôm nay để được tư vấn và đặt hàng Keto Slim với giá ưu đãi đặc biệt!*`,
+    image: "/images/blogs/keto-slim-blog.jpg",
+    date: "2025-05-31",
+    author: "Dung Lê",
+    tags: ["keto slim", "giảm cân", "sản phẩm tự nhiên", "thailand"],
+  },
+  {
     id: "1",
     slug: "cach-giam-can-hieu-qua",
     title: "5 Cách Giảm Cân Hiệu Quả và An Toàn",
