@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Header, Footer } from "@/components/common/Layout";
 import { PageNavigation } from "@/components/common/Navigation";
 import { ZaloChatButton } from "@/components/common/ZaloChatButton";
+import { ScrollToTopButton } from "@/components/common/ScrollToTopButton";
 import { Inter } from "next/font/google";
 import { StoreProvider } from "@/store/provider";
 import { AddToCartProvider } from "@/context/AddToCartContext";
@@ -97,6 +98,7 @@ export default function RootLayout({
             <main className="flex-grow">{children}</main>
             <Footer />
             <ZaloChatButton />
+            <ScrollToTopButton />
           </AddToCartProvider>
         </StoreProvider>
       </body>
