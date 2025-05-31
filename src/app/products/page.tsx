@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import { ProductList } from "@/components/products/ProductList";
 import { products } from "@/content/products";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   title: "Sản phẩm giảm cân an toàn | Dung Lê Giảm Cân",
@@ -13,7 +14,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/images/products/san-pham-1.jpg",
+        url: "/images/products/baschi-cam/baschi-cam.jpg",
         width: 1200,
         height: 630,
         alt: "Sản phẩm giảm cân Dung Lê",
@@ -26,10 +27,14 @@ export const metadata: Metadata = {
     title: "Sản phẩm giảm cân an toàn | Dung Lê Giảm Cân",
     description:
       "Khám phá bộ sản phẩm giảm cân chính hãng từ Thái Lan. Hiệu quả nhanh chóng, an toàn, không tăng cân lại. Cam kết 100% sản phẩm chính hãng.",
-    images: ["/images/products/san-pham-1.jpg"],
+    images: ["/images/products/baschi-cam/baschi-cam.jpg"],
   },
 };
 
 export default function ProductsPage() {
-  return <ProductList products={products} />;
+  return (
+    <Suspense fallback={<div>Đang tải...</div>}>
+      <ProductList products={products} />
+    </Suspense>
+  );
 }
