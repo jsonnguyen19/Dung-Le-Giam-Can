@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { AnimatedDiv } from "@/components/motion/WithAnimation";
 import { Section } from "@/components/ui/Section";
@@ -38,7 +38,17 @@ export const ProductList = ({ products }: ProductListProps) => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [search, setSearch] = useState("");
+  const [debouncedSearch, setDebouncedSearch] = useState("");
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+
+  // Debounce search với 300ms delay
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setDebouncedSearch(search);
+    }, 300);
+
+    return () => clearTimeout(timer);
+  }, [search]);
 
   // Đọc params từ URL
   useEffect(() => {
@@ -50,38 +60,49 @@ export const ProductList = ({ products }: ProductListProps) => {
     }
     if (searchParam) {
       setSearch(searchParam);
+      setDebouncedSearch(searchParam);
     }
   }, [searchParams]);
+
+  // Update URL khi debouncedSearch thay đổi
+  useEffect(() => {
+    if (search !== "" || debouncedSearch !== searchParams.get("search")) {
+      updateURL(selectedCategory, debouncedSearch);
+    }
+  }, [debouncedSearch]);
 
   const categories = Array.from(
     new Set(products.map((product) => product.category))
   );
 
-  const updateURL = (newCategory: string | null, newSearch: string) => {
-    const params = new URLSearchParams();
-    if (newCategory) params.set("category", newCategory);
-    if (newSearch) params.set("search", newSearch);
+  const updateURL = useCallback(
+    (newCategory: string | null, newSearch: string) => {
+      const params = new URLSearchParams();
+      if (newCategory) params.set("category", newCategory);
+      if (newSearch) params.set("search", newSearch);
 
-    const newURL = params.toString()
-      ? `/products?${params.toString()}`
-      : "/products";
-    router.push(newURL, { scroll: false });
-  };
+      const newURL = params.toString()
+        ? `/products?${params.toString()}`
+        : "/products";
+      router.push(newURL, { scroll: false });
+    },
+    [router]
+  );
 
   const handleCategoryChange = (category: string | null) => {
     setSelectedCategory(category);
-    updateURL(category, search);
+    updateURL(category, debouncedSearch);
   };
 
   const handleSearchChange = (newSearch: string) => {
     setSearch(newSearch);
-    updateURL(selectedCategory, newSearch);
+    // URL sẽ được update tự động qua useEffect khi debouncedSearch thay đổi
   };
 
   const filteredProducts = products.filter((product) => {
     const matchesSearch =
-      product.name.toLowerCase().includes(search.toLowerCase()) ||
-      product.description.toLowerCase().includes(search.toLowerCase());
+      product.name.toLowerCase().includes(debouncedSearch.toLowerCase()) ||
+      product.description.toLowerCase().includes(debouncedSearch.toLowerCase());
     const matchesCategory =
       !selectedCategory || product.category === selectedCategory;
     return matchesSearch && matchesCategory;
@@ -224,6 +245,7 @@ export const ProductList = ({ products }: ProductListProps) => {
             <button
               onClick={() => {
                 setSearch("");
+                setDebouncedSearch("");
                 setSelectedCategory(null);
                 updateURL(null, "");
               }}

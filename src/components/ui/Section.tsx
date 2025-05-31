@@ -28,7 +28,7 @@ export const Section = ({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className={`text-center mb-6 md:mb-12 ${
+            className={`text-center mb-2 md:mb-6 ${
               hideTitleOnMobile ? "hidden md:block" : ""
             }`}
           >
