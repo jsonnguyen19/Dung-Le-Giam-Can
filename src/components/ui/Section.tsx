@@ -8,6 +8,7 @@ interface SectionProps {
   subtitle?: string;
   children: React.ReactNode;
   className?: string;
+  hideTitleOnMobile?: boolean; // New prop to hide title on mobile
 }
 
 export const Section = ({
@@ -16,6 +17,7 @@ export const Section = ({
   subtitle,
   children,
   className = "",
+  hideTitleOnMobile = false,
 }: SectionProps) => {
   return (
     <section id={id} className={`py-4 md:py-8 ${className}`}>
@@ -26,7 +28,9 @@ export const Section = ({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="text-center mb-6 md:mb-12"
+            className={`text-center mb-6 md:mb-12 ${
+              hideTitleOnMobile ? "hidden md:block" : ""
+            }`}
           >
             {title && (
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">

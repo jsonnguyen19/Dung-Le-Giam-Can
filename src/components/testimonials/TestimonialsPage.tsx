@@ -46,6 +46,7 @@ export const TestimonialsPage = () => {
       <Section
         title="Khách hàng nói gì về chúng tôi?"
         subtitle="Những đánh giá chân thực từ hàng nghìn khách hàng đã thành công"
+        hideTitleOnMobile={true}
       >
         {/* Statistics */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-12">

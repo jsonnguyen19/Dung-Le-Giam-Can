@@ -38,6 +38,7 @@ export default function BlogPage() {
     <Section
       title="Blog"
       subtitle="Chia sẻ kinh nghiệm và kiến thức về giảm cân khoa học"
+      hideTitleOnMobile={true}
     >
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {blogPosts.map((post, index) => (

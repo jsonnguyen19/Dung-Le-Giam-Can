@@ -37,6 +37,7 @@ export default function ContactPage() {
     <Section
       title="Liên hệ"
       subtitle="Liên hệ với chúng tôi để được tư vấn miễn phí"
+      hideTitleOnMobile={true}
     >
       <div className="max-w-4xl mx-auto">
         {/* Main Contact Card */}

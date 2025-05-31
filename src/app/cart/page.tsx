@@ -15,7 +15,7 @@ export default function CartPage() {
 
   if (items.length === 0) {
     return (
-      <Section title="Giỏ hàng của bạn">
+      <Section title="Giỏ hàng của bạn" hideTitleOnMobile={true}>
         <div className="text-center py-8">
           <div className="text-gray-500 mb-4">
             Chưa có sản phẩm nào trong giỏ hàng
@@ -29,7 +29,7 @@ export default function CartPage() {
   }
 
   return (
-    <Section title="Giỏ hàng của bạn">
+    <Section title="Giỏ hàng của bạn" hideTitleOnMobile={true}>
       <div className="grid md:grid-cols-3 gap-6">
         <div className="md:col-span-2 space-y-4">
           {items.map((item) => (
