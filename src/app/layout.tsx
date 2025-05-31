@@ -96,7 +96,7 @@ export default function RootLayout({
             <Header />
             {/* PageNavigation handles its own spacing with mt-16 */}
             <PageNavigation />
-            <main className="flex-grow pt-16">{children}</main>
+            <main className="flex-grow pt-20 md:pt-16">{children}</main>
             <Footer />
             <ZaloChatButton />
             <ScrollToTopButton />
