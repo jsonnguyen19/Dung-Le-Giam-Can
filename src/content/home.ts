@@ -4,11 +4,7 @@ export const homeContent = {
     description:
       "Hành trình đến vóc dáng mơ ước cùng Dung Lê Giảm Cân - Cam kết giảm 3-5kg/tháng với sản phẩm chính hãng từ Thái Lan. An toàn - Hiệu quả - Bền vững",
     cta: "Mua ngay",
-    banners: [
-      "/images/banners/banner-01.jpg",
-      "/images/banners/banner-02.jpg",
-      "/images/banners/banner-03.jpg",
-    ],
+    banners: ["/images/banners/banner-01.jpg", "/images/banners/banner-02.jpg"],
   },
   intro: {
     title: "Về Dung Lê Giảm Cân",
