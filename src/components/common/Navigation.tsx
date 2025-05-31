@@ -83,8 +83,6 @@ export const PageNavigation = () => {
                   pathSegments[0] === "products"
                 ) {
                   router.push("/products");
-                  // Cập nhật URL để hiển thị ở thanh địa chỉ
-                  window.history.pushState({}, "", "/products");
                 }
                 // For blog details, go to blog page
                 else if (
@@ -92,12 +90,16 @@ export const PageNavigation = () => {
                   pathSegments[0] === "blog"
                 ) {
                   router.push("/blog");
-                  // Cập nhật URL để hiển thị ở thanh địa chỉ
-                  window.history.pushState({}, "", "/blog");
                 }
-                // Otherwise just go back
+                // For other pages, determine where to go based on current path
+                else if (pathSegments.length === 1) {
+                  // If we're on a top-level page, go to home
+                  router.push("/");
+                }
+                // For deeper nested pages, go up one level
                 else {
-                  router.back();
+                  const parentPath = `/${pathSegments.slice(0, -1).join("/")}`;
+                  router.push(parentPath);
                 }
               }}
               className="flex items-center justify-center text-gray-700 hover:text-pink transition-colors w-8 h-8"
