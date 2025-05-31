@@ -1,7 +1,6 @@
-import { Metadata } from "next";
 import { ProductList } from "@/components/products/ProductList";
 import { products } from "@/content/products";
-import { Suspense } from "react";
+import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Sản phẩm giảm cân an toàn | Dung Lê Giảm Cân",
@@ -32,9 +31,5 @@ export const metadata: Metadata = {
 };
 
 export default function ProductsPage() {
-  return (
-    <Suspense fallback={<div>Đang tải...</div>}>
-      <ProductList products={products} />
-    </Suspense>
-  );
+  return <ProductList products={products} />;
 }

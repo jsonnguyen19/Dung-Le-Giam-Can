@@ -45,6 +45,7 @@ export const OrderForm = () => {
   const [selectedProductIds, setSelectedProductIds] = useState<string[]>([]);
   const [showOrderPreview, setShowOrderPreview] = useState(false);
   const [isCopied, setIsCopied] = useState(false);
+  const [showManualCopyOption, setShowManualCopyOption] = useState(false);
 
   // Enhanced remove order item with toast
   const handleRemoveOrderItem = (id: string, itemName: string) => {
@@ -212,7 +213,13 @@ export const OrderForm = () => {
 
       setOrderGenerated(message);
       setShowOrderPreview(true);
-      setIsCopied(false); // Reset copy status when new order is generated
+      setIsCopied(false);
+      setShowManualCopyOption(false);
+
+      // Tự động copy ngay khi tạo đơn hàng
+      setTimeout(() => {
+        handleAutoCopy();
+      }, 100);
 
       toast.dismiss(loadingToast);
       toast.success("Đơn hàng đã được tạo thành công! ✨", {
@@ -231,6 +238,96 @@ export const OrderForm = () => {
         },
       });
     }, 800);
+  };
+
+  // Function để tự động copy khi tạo đơn hàng
+  const handleAutoCopy = async () => {
+    try {
+      // Try modern Clipboard API first (works on desktop and some mobile browsers)
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(generatedOrderMessage);
+        setIsCopied(true);
+
+        toast.success(
+          "✅ Đã tự động copy nội dung đơn hàng! Có thể gửi qua Zalo ngay",
+          {
+            duration: 3000,
+            style: {
+              background: "#f0fdf4",
+              color: "#166534",
+              border: "1px solid #bbf7d0",
+              borderRadius: "12px",
+              fontSize: "14px",
+              padding: "12px 16px",
+            },
+            iconTheme: {
+              primary: "#10b981",
+              secondary: "#ffffff",
+            },
+          }
+        );
+      } else {
+        // Fallback for mobile and older browsers
+        const textArea = document.createElement("textarea");
+        textArea.value = generatedOrderMessage;
+        textArea.style.position = "fixed";
+        textArea.style.left = "-999999px";
+        textArea.style.top = "-999999px";
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+
+        const successful = document.execCommand("copy");
+        document.body.removeChild(textArea);
+
+        if (successful) {
+          setIsCopied(true);
+          toast.success(
+            "✅ Đã tự động copy nội dung đơn hàng! Có thể gửi qua Zalo ngay",
+            {
+              duration: 3000,
+              style: {
+                background: "#f0fdf4",
+                color: "#166534",
+                border: "1px solid #bbf7d0",
+                borderRadius: "12px",
+                fontSize: "14px",
+                padding: "12px 16px",
+              },
+              iconTheme: {
+                primary: "#10b981",
+                secondary: "#ffffff",
+              },
+            }
+          );
+        } else {
+          throw new Error("execCommand failed");
+        }
+      }
+    } catch (err) {
+      console.error("Không thể tự động copy:", err);
+      setShowManualCopyOption(true);
+
+      toast.error(
+        "📱 Không thể tự động copy!\n\nVui lòng bấm 'Copy thủ công' sau khi copy nội dung ở trên",
+        {
+          duration: 6000,
+          style: {
+            background: "#fef3cd",
+            color: "#8b5a00",
+            border: "1px solid #f6d55c",
+            borderRadius: "12px",
+            fontSize: "13px",
+            padding: "12px 16px",
+            whiteSpace: "pre-line",
+          },
+          iconTheme: {
+            primary: "#f59e0b",
+            secondary: "#ffffff",
+          },
+        }
+      );
+    }
   };
 
   const handleCopyOrder = async () => {
@@ -441,7 +538,8 @@ export const OrderForm = () => {
         clearCart();
         resetOrder();
         setShowOrderPreview(false);
-        setIsCopied(false); // Reset copy status
+        setIsCopied(false);
+        setShowManualCopyOption(false);
 
         toast.success("🙏 Cảm ơn bạn đã đặt hàng! Đơn hàng đã được reset", {
           duration: 3000,
@@ -494,17 +592,17 @@ export const OrderForm = () => {
             }`}
           >
             {isCopied ? <CheckCircle size={18} /> : <Copy size={18} />}
-            {isCopied ? "Đã copy" : "📋 Copy nội dung"}
+            {isCopied ? "Đã copy" : "📋 Copy lại"}
           </Button>
 
-          {!isCopied && (
+          {showManualCopyOption && !isCopied && (
             <Button
               onClick={handleManualCopyConfirm}
               variant="outline"
               className="flex-1 flex items-center justify-center gap-2 transition-all duration-200 transform hover:scale-[1.02] hover:bg-green-50 hover:border-green-200 hover:text-green-600"
             >
               <CheckCircle size={18} />
-              Đã copy thủ công
+              Copy thủ công
             </Button>
           )}
 
@@ -522,10 +620,10 @@ export const OrderForm = () => {
           </Button>
         </div>
 
-        {!isCopied && (
+        {showManualCopyOption && !isCopied && (
           <div className="mt-3 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
             <p className="text-sm text-yellow-700 text-center mb-2">
-              ⚠️ <strong>Quy trình copy và gửi:</strong>
+              ⚠️ <strong>Không thể tự động copy:</strong>
             </p>
             <div className="text-xs text-yellow-600 space-y-1">
               <p>
@@ -537,7 +635,7 @@ export const OrderForm = () => {
                 Cmd+C)
               </p>
               <p>
-                <strong>✅ Sau khi copy:</strong> Bấm "Đã copy thủ công" để tiếp
+                <strong>✅ Sau khi copy:</strong> Bấm "Copy thủ công" để tiếp
                 tục
               </p>
             </div>
@@ -547,7 +645,8 @@ export const OrderForm = () => {
         <Button
           onClick={() => {
             setShowOrderPreview(false);
-            setIsCopied(false); // Reset copy status when going back to edit
+            setIsCopied(false);
+            setShowManualCopyOption(false);
           }}
           variant="outline"
           className="w-full mt-4 hover:bg-gray-50 transition-colors duration-200"
