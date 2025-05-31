@@ -63,9 +63,18 @@ export default function ProductDetailPage({ params }: Props) {
     notFound();
   }
 
+  // Get related products from same category, excluding current product
   const relatedProducts = products
-    .filter((p) => p.id !== product.id)
+    .filter((p) => p.id !== product.id && p.category === product.category)
     .slice(0, 3);
+
+  // If not enough products in same category, fill with other products
+  if (relatedProducts.length < 3) {
+    const remainingProducts = products
+      .filter((p) => p.id !== product.id && p.category !== product.category)
+      .slice(0, 3 - relatedProducts.length);
+    relatedProducts.push(...remainingProducts);
+  }
 
   return <ProductDetail product={product} relatedProducts={relatedProducts} />;
 }

@@ -6,7 +6,9 @@ import { Button } from "@/components/ui/Button";
 import { useIsClient } from "@/hooks/useIsClient";
 import { Section } from "@/components/ui/Section";
 import { ProductCard } from "@/components/products/ProductCard";
+import { ReviewSection } from "@/components/products/ReviewSection";
 import { Product } from "@/content/products";
+import { getReviewsByProductId, getAverageRating } from "@/content/reviews";
 import { useCartStore } from "@/store/cartStore";
 import { formatPrice } from "@/lib/formatPrice";
 import { AnimatedDiv } from "@/components/motion/WithAnimation";
@@ -24,6 +26,11 @@ export const ProductDetail = ({
   const isClient = useIsClient();
   const addToCartButtonRef = useRef<HTMLButtonElement>(null);
   const { triggerAddToCart } = useAddToCartContext();
+
+  // Get review data
+  const reviews = getReviewsByProductId(product.id);
+  const averageRating = product.rating || getAverageRating(product.id);
+  const totalReviews = product.reviewCount || reviews.length;
 
   const handleAddToCart = () => {
     if (addToCartButtonRef.current) {
@@ -94,8 +101,93 @@ export const ProductDetail = ({
             animate={{ opacity: 1, x: 0 }}
             className="space-y-6"
           >
-            <h1 className="text-3xl font-bold text-gray-900">{product.name}</h1>
-            <p className="text-xl font-semibold text-pink">
+            <div>
+              <h1 className="text-3xl font-bold text-gray-900 mb-3">
+                {product.name}
+              </h1>
+
+              {/* Product Credibility Info */}
+              <div className="flex flex-wrap items-center gap-4 mb-4">
+                {/* Rating */}
+                {averageRating > 0 && (
+                  <div className="flex items-center gap-2">
+                    <div className="flex items-center">
+                      {[...Array(5)].map((_, i) => (
+                        <svg
+                          key={i}
+                          className={`w-5 h-5 ${
+                            i < Math.floor(averageRating)
+                              ? "text-yellow-400"
+                              : "text-gray-300"
+                          }`}
+                          fill="currentColor"
+                          viewBox="0 0 20 20"
+                        >
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                      ))}
+                    </div>
+                    <span className="text-sm font-medium">
+                      {averageRating.toFixed(1)} ({totalReviews} đánh giá)
+                    </span>
+                  </div>
+                )}
+
+                {/* Sold Count */}
+                {product.soldCount && (
+                  <div className="text-sm text-gray-600 flex items-center gap-1">
+                    <svg
+                      className="w-4 h-4"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
+                      />
+                    </svg>
+                    Đã bán {product.soldCount.toLocaleString()}+
+                  </div>
+                )}
+
+                {/* Verified */}
+                {product.verified && (
+                  <div className="bg-green-100 text-green-800 text-sm px-3 py-1 rounded-full flex items-center gap-1">
+                    <svg
+                      className="w-4 h-4"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                    Chính hãng
+                  </div>
+                )}
+              </div>
+
+              {/* Badges */}
+              {product.badges && product.badges.length > 0 && (
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {product.badges.map((badge, index) => (
+                    <span
+                      key={index}
+                      className="bg-red-100 text-red-800 text-sm px-3 py-1 rounded-full font-medium"
+                    >
+                      {badge}
+                    </span>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            <p className="text-2xl font-bold text-pink">
               {isClient ? formatPrice(product.price) : ""}
             </p>
             <div className="prose prose-pink">
@@ -145,6 +237,15 @@ export const ProductDetail = ({
             </div>
           </AnimatedDiv>
         </div>
+      </Section>
+
+      {/* Reviews Section */}
+      <Section title="Đánh giá từ khách hàng" className="bg-gray-50">
+        <ReviewSection
+          productId={product.id}
+          averageRating={averageRating}
+          totalReviews={totalReviews}
+        />
       </Section>
 
       {relatedProducts.length > 0 && (
