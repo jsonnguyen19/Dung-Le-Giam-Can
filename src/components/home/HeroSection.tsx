@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
+import { SparklesIcon } from "@heroicons/react/24/outline";
 import {
   AnimatedDiv,
   AnimatedHeading,
@@ -72,9 +73,10 @@ export const HeroSection = () => {
                   .getElementById("order")
                   ?.scrollIntoView({ behavior: "smooth" });
               }}
-              className="px-6 py-3 text-lg"
+              className="px-6 py-3 text-lg flex items-center gap-2"
             >
-              {homeContent.hero.cta} ✨
+              {homeContent.hero.cta}
+              <SparklesIcon className="w-5 h-5" />
             </Button>
           </AnimatedDiv>
         </div>

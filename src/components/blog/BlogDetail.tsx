@@ -122,7 +122,7 @@ export const BlogDetail = ({ post, relatedPosts }: BlogDetailProps) => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white rounded-lg shadow-md overflow-hidden"
+                className="bg-white rounded-lg md:shadow-md overflow-hidden"
               >
                 <Link href={`/blog/${relatedPost.slug}`}>
                   <div className="relative h-48">

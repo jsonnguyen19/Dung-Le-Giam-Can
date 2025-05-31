@@ -63,8 +63,8 @@ export const GuaranteeSection = () => {
             transition={{ duration: 0.5, delay: index * 0.1 }}
             className={`p-6 rounded-lg text-center ${
               guarantee.highlight
-                ? "bg-gradient-to-br from-pink to-pinkDark text-white shadow-lg"
-                : "bg-white border border-gray-200 shadow-sm"
+                ? "bg-gradient-to-br from-pink to-pinkDark text-white md:shadow-lg"
+                : "bg-white border border-gray-200 md:shadow-sm"
             }`}
           >
             <div className="text-4xl mb-4">{guarantee.icon}</div>

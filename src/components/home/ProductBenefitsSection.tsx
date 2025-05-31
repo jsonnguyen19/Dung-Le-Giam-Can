@@ -59,7 +59,7 @@ export const ProductBenefitsSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
-            className="bg-white rounded-lg shadow-md overflow-hidden"
+            className="bg-white rounded-lg md:shadow-md overflow-hidden"
           >
             <div
               className={`bg-gradient-to-r ${category.color} p-6 text-white`}
@@ -118,7 +118,7 @@ export const ProductBenefitsSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.5 }}
-          className="bg-white p-8 rounded-lg shadow-md max-w-2xl mx-auto"
+          className="bg-white p-8 rounded-lg md:shadow-md max-w-2xl mx-auto"
         >
           <h4 className="text-xl font-bold text-gray-900 mb-4">
             💬 Chưa biết chọn sản phẩm nào?

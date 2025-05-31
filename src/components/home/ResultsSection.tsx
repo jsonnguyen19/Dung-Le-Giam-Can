@@ -60,7 +60,7 @@ export const ResultsSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
-            className="text-center bg-white p-6 rounded-lg shadow-sm"
+            className="text-center bg-white p-6 rounded-lg md:shadow-sm"
           >
             <div className="text-3xl font-bold text-pink mb-2">
               {stat.number}
@@ -79,7 +79,7 @@ export const ResultsSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: index * 0.2 }}
-            className="bg-white rounded-lg shadow-md overflow-hidden"
+            className="bg-white rounded-lg md:shadow-md overflow-hidden"
           >
             <div className="p-6">
               <div className="flex items-center gap-4 mb-4">

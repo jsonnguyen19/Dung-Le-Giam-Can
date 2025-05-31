@@ -463,7 +463,7 @@ export const OrderForm = () => {
       <AnimatedDiv
         initial={{ opacity: 0, y: 20, scale: 0.95 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
-        className="bg-white rounded-lg shadow-2xl p-6 border border-gray-100"
+        className="bg-white rounded-lg md:shadow-2xl p-6 border border-gray-100"
       >
         <div className="text-center mb-6">
           <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -562,7 +562,7 @@ export const OrderForm = () => {
     <AnimatedDiv
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      className="bg-white rounded-lg shadow-lg overflow-hidden max-w-none"
+      className="bg-white rounded-lg md:shadow-lg overflow-hidden max-w-none"
     >
       <div className="xl:grid xl:grid-cols-5 lg:grid lg:grid-cols-3">
         {/* Left side - Form */}
@@ -767,7 +767,7 @@ export const OrderForm = () => {
               {orderItems.map((item) => (
                 <div
                   key={item.id}
-                  className="flex items-center gap-2 sm:gap-3 p-2 sm:p-3 bg-white rounded-lg shadow-sm border border-gray-100"
+                  className="flex items-center gap-2 sm:gap-3 p-2 sm:p-3 bg-white rounded-lg md:shadow-sm border border-gray-100"
                 >
                   <div className="w-12 h-12 sm:w-16 sm:h-16 relative rounded-lg overflow-hidden flex-shrink-0">
                     <Image

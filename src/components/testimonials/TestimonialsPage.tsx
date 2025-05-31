@@ -56,7 +56,7 @@ export const TestimonialsPage = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="text-center bg-white p-6 rounded-lg shadow-sm border border-gray-100"
+              className="text-center bg-white p-6 rounded-lg md:shadow-sm border border-gray-100"
             >
               <div className="text-3xl font-bold text-pink mb-2">
                 {stat.number}
@@ -108,7 +108,7 @@ export const TestimonialsPage = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-shadow"
+              className="bg-white p-6 rounded-lg md:shadow-md border border-gray-100 md:hover:shadow-lg transition-shadow"
             >
               <div className="flex items-start gap-4 mb-4">
                 <Image
