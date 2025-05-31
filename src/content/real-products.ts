@@ -92,7 +92,7 @@ export const products: Product[] = [
     slug: "bashi-hong",
     name: "Bashi Hồng - Viên Giảm Cân Cao Cấp",
     description:
-      "Viên giảm cân Bashi Hồng với công thức đặc biệt, hiệu quả cao trong việc đốt cháy mỏ thừa.",
+      "Viên giảm cân Bashi Hồng với công thức đặc biệt, hiệu quả cao trong việc đốt cháy mỡ thừa.",
     price: 320000,
     images: ["/images/products/bashi-hong/bashi-hong.jpg"],
     ingredients: [
