@@ -219,7 +219,7 @@ export const Header = () => {
 
             {/* Hamburger Button */}
             <button
-              className="hamburger-button p-2 text-gray-700 hover:text-pink transition-colors"
+              className="hamburger-button p-2 text-pink hover:text-pinkDark transition-colors"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label="Toggle mobile menu"
             >
