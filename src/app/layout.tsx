@@ -1,5 +1,5 @@
 import "./globals.css";
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Header, Footer } from "@/components/common/Layout";
 import { PageNavigation } from "@/components/common/Navigation";
 import { ZaloChatButton } from "@/components/common/ZaloChatButton";
@@ -63,11 +63,6 @@ export const metadata: Metadata = {
       "Dung Lê Giảm Cân cung cấp các sản phẩm giảm cân an toàn, hiệu quả từ Thái Lan. Giảm cân không yoyo, không tăng cân lại.",
     images: ["/images/logo/logo.png"],
   },
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 1,
-  },
   robots: {
     index: true,
     follow: true,
@@ -79,6 +74,12 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
 };
 
 export default function RootLayout({
