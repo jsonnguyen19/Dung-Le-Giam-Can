@@ -20,7 +20,7 @@ export const Section = ({
   hideTitleOnMobile = false,
 }: SectionProps) => {
   return (
-    <section id={id} className={`py-4 md:py-8 ${className}`}>
+    <section id={id} className={`py-2 md:py-8 ${className}`}>
       <div className="container mx-auto px-4 md:px-6">
         {(title || subtitle) && (
           <AnimatedDiv

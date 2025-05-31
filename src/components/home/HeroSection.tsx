@@ -6,9 +6,9 @@ import { Autoplay } from "swiper/modules";
 import { SparklesIcon } from "@heroicons/react/24/outline";
 import {
   AnimatedDiv,
-  AnimatedHeading,
   AnimatedParagraph,
 } from "@/components/motion/WithAnimation";
+import { TypewriterText } from "@/components/motion/TypewriterText";
 import { Button } from "@/components/ui/Button";
 import { homeContent } from "@/content/home";
 import Image from "next/image";
@@ -45,14 +45,14 @@ export const HeroSection = () => {
 
       <div className="absolute inset-0 z-10 flex items-center justify-center">
         <div className="container mx-auto px-4 md:px-6 text-center text-white">
-          <AnimatedHeading
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+          <TypewriterText
+            texts={homeContent.hero.slogans}
             className="text-3xl sm:text-4xl md:text-6xl font-bold mb-4 md:mb-6"
-          >
-            {homeContent.hero.slogan}
-          </AnimatedHeading>
+            typeSpeed={80}
+            deleteSpeed={40}
+            delayBetweenTexts={8000}
+            showCursor={true}
+          />
           <AnimatedParagraph
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
