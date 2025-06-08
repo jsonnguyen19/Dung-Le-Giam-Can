@@ -68,6 +68,7 @@ export const ZaloChatButton = () => {
               alt="Zalo"
               fill
               className="object-contain"
+              priority
             />
           </div>
 
