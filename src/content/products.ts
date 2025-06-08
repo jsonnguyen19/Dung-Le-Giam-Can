@@ -82,9 +82,9 @@ export const products: Product[] = [
   {
     id: "3",
     slug: "baschi-cam-lo",
-    name: "Bashi Cam Lọ - Viên Giảm Cân Vị Cam Lọ",
+    name: "Baschi Cam Lọ - Viên Giảm Cân Vị Cam Lọ",
     description:
-      "Viên giảm cân Bashi với hương vị cam lọ thơm ngon, dễ uống, giúp giảm cân hiệu quả.",
+      "Viên giảm cân Baschi với hương vị cam lọ thơm ngon, dễ uống, giúp giảm cân hiệu quả.",
     price: 280000,
     images: ["/images/products/baschi-cam-lo/baschi-cam-lo.jpg"],
     ingredients: [
@@ -110,12 +110,12 @@ export const products: Product[] = [
   },
   {
     id: "4",
-    slug: "bashi-hong",
-    name: "Bashi Hồng - Viên Giảm Cân Cao Cấp",
+    slug: "baschi-hong",
+    name: "Baschi Hồng - Viên Giảm Cân Cao Cấp",
     description:
-      "Viên giảm cân Bashi Hồng với công thức đặc biệt, hiệu quả cao trong việc đốt cháy mỏ thừa.",
+      "Viên giảm cân Baschi Hồng với công thức đặc biệt, hiệu quả cao trong việc đốt cháy mỏ thừa.",
     price: 320000,
-    images: ["/images/products/bashi-hong/bashi-hong.jpg"],
+    images: ["/images/products/baschi-hong/baschi-hong.jpg"],
     ingredients: [
       "Red Grape Extract",
       "Resveratrol",
@@ -140,12 +140,12 @@ export const products: Product[] = [
   },
   {
     id: "5",
-    slug: "bashi-tim",
-    name: "Bashi Tím - Viên Giảm Cân Thảo Dược",
+    slug: "baschi-tim",
+    name: "Baschi Tím - Viên Giảm Cân Thảo Dược",
     description:
-      "Viên giảm cân Bashi Tím từ chiết xuất thảo dược tự nhiên, an toàn cho sức khỏe.",
+      "Viên giảm cân Baschi Tím từ chiết xuất thảo dược tự nhiên, an toàn cho sức khỏe.",
     price: 300000,
-    images: ["/images/products/bashi-tim/bashi-tim.jpg"],
+    images: ["/images/products/baschi-tim/baschi-tim.jpg"],
     ingredients: [
       "Purple Sweet Potato Extract",
       "Anthocyanin",
@@ -252,12 +252,12 @@ export const products: Product[] = [
   },
   {
     id: "9",
-    slug: "liso-xanh",
-    name: "Liso Xanh - Viên Giảm Cân Thảo Dược",
+    slug: "lishou-xanh",
+    name: "Lishou Xanh - Viên Giảm Cân Thảo Dược",
     description:
-      "Viên giảm cân Liso Xanh từ thảo dược tự nhiên, an toàn và hiệu quả lâu dài.",
+      "Viên giảm cân Lishou Xanh từ thảo dược tự nhiên, an toàn và hiệu quả lâu dài.",
     price: 260000,
-    images: ["/images/products/liso-xanh/liso-xanh.jpg"],
+    images: ["/images/products/lishou-xanh/lishou-xanh.jpg"],
     ingredients: [
       "Green Tea Extract",
       "Guar Gum",
@@ -281,12 +281,12 @@ export const products: Product[] = [
   },
   {
     id: "10",
-    slug: "lisu-den",
-    name: "Lisu Đen - Viên Giảm Cân Cao Cấp",
+    slug: "lishou-den",
+    name: "Lishou Đen - Viên Giảm Cân Cao Cấp",
     description:
-      "Viên giảm cân Lisu Đen với công thức nâng cấp, hiệu quả mạnh mẽ cho mọi đối tượng.",
+      "Viên giảm cân Lishou Đen với công thức nâng cấp, hiệu quả mạnh mẽ cho mọi đối tượng.",
     price: 290000,
-    images: ["/images/products/lisu-den/lisu-den.jpg"],
+    images: ["/images/products/lishou-den/lishou-den.jpg"],
     ingredients: [
       "Black Bean Extract",
       "L-Carnitine",

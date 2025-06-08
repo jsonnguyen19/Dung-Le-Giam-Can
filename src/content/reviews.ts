@@ -637,7 +637,7 @@ export const reviews: Review[] = [
     helpful: 24,
   },
 
-  // Reviews cho Bashi Hồng (product id: "4")
+  // Reviews cho Baschi Hồng (product id: "4")
   {
     id: "r52",
     productId: "4",
@@ -645,7 +645,7 @@ export const reviews: Review[] = [
     userAvatar: "/images/users/anomynous.jpg",
     rating: 4,
     comment:
-      "Bashi Hồng hiệu quả tốt, 2 tháng giảm 7kg. Da mặt cũng đẹp hơn nhờ chống lão hóa.",
+      "Baschi Hồng hiệu quả tốt, 2 tháng giảm 7kg. Da mặt cũng đẹp hơn nhờ chống lão hóa.",
     date: "2024-12-09",
     verified: true,
     helpful: 15,
@@ -741,7 +741,7 @@ export const reviews: Review[] = [
     helpful: 16,
   },
 
-  // Reviews cho Bashi Tím (product id: "5")
+  // Reviews cho Baschi Tím (product id: "5")
   {
     id: "r60",
     productId: "5",
@@ -749,7 +749,7 @@ export const reviews: Review[] = [
     userAvatar: "/images/users/anomynous.jpg",
     rating: 4,
     comment:
-      "Bashi Tím từ thảo dược rất an toàn. 2 tháng giảm 5kg, không có tác dụng phụ gì.",
+      "Baschi Tím từ thảo dược rất an toàn. 2 tháng giảm 5kg, không có tác dụng phụ gì.",
     date: "2024-12-05",
     verified: true,
     helpful: 13,
@@ -767,7 +767,7 @@ export const reviews: Review[] = [
     helpful: 18,
   },
 
-  // Reviews cho Liso Xanh (product id: "9")
+  // Reviews cho Lishou Xanh (product id: "9")
   {
     id: "r62",
     productId: "9",
@@ -775,7 +775,7 @@ export const reviews: Review[] = [
     userAvatar: "/images/users/anomynous.jpg",
     rating: 4,
     comment:
-      "Liso Xanh từ thảo dược, cảm thấy an tâm khi sử dụng. 6 tuần giảm 4kg.",
+      "Lishou Xanh từ thảo dược, cảm thấy an tâm khi sử dụng. 6 tuần giảm 4kg.",
     date: "2024-12-04",
     verified: true,
     helpful: 12,
@@ -793,7 +793,7 @@ export const reviews: Review[] = [
     helpful: 10,
   },
 
-  // Reviews cho Lisu Đen (product id: "10")
+  // Reviews cho Lishou Đen (product id: "10")
   {
     id: "r64",
     productId: "10",
@@ -801,7 +801,7 @@ export const reviews: Review[] = [
     userAvatar: "/images/users/anomynous.jpg",
     rating: 4,
     comment:
-      "Lisu Đen nâng cấp hiệu quả hơn bản xanh. 2 tháng giảm 6kg, kiểm soát đường huyết tốt.",
+      "Lishou Đen nâng cấp hiệu quả hơn bản xanh. 2 tháng giảm 6kg, kiểm soát đường huyết tốt.",
     date: "2024-12-03",
     verified: true,
     helpful: 14,
@@ -1210,7 +1210,7 @@ export const reviews: Review[] = [
     helpful: 15,
   },
 
-  // Reviews cho Lisu Đen Nâng Cấp (product id: "10") - thêm
+  // Reviews cho Lishou Đen Nâng Cấp (product id: "10") - thêm
   {
     id: "r97",
     productId: "10",
@@ -1218,7 +1218,7 @@ export const reviews: Review[] = [
     userAvatar: "/images/users/anomynous.jpg",
     rating: 5,
     comment:
-      "Lisu Đen nâng cấp mạnh hơn bản cũ rất nhiều. 2 tháng giảm 9kg, hiệu quả vượt trội.",
+      "Lishou Đen nâng cấp mạnh hơn bản cũ rất nhiều. 2 tháng giảm 9kg, hiệu quả vượt trội.",
     date: "2024-12-19",
     verified: true,
     helpful: 31,
@@ -1364,7 +1364,7 @@ export const reviews: Review[] = [
     userAvatar: "/images/users/anomynous.jpg",
     rating: 5,
     comment:
-      "Lisu Đen nâng cấp là đỉnh cao của công nghệ giảm cân. 3 tháng giảm 13kg không tưởng!",
+      "Lishou Đen nâng cấp là đỉnh cao của công nghệ giảm cân. 3 tháng giảm 13kg không tưởng!",
     date: "2024-12-12",
     verified: true,
     helpful: 35,
@@ -1484,7 +1484,7 @@ export const reviews: Review[] = [
     userAvatar: "/images/users/anomynous.jpg",
     rating: 5,
     comment:
-      "Lisu Đen nâng cấp công nghệ mới. Vợ tôi 3 tháng giảm 12kg, hiệu quả thần kỳ!",
+      "Lishou Đen nâng cấp công nghệ mới. Vợ tôi 3 tháng giảm 12kg, hiệu quả thần kỳ!",
     date: "2024-12-02",
     verified: true,
     helpful: 32,
@@ -1604,7 +1604,7 @@ export const reviews: Review[] = [
     userAvatar: "/images/users/anomynous.jpg",
     rating: 5,
     comment:
-      "Lisu Đen nâng cấp đỉnh cao công nghệ. 4 tháng giảm 15kg, kết quả ngoài mong đợi!",
+      "Lishou Đen nâng cấp đỉnh cao công nghệ. 4 tháng giảm 15kg, kết quả ngoài mong đợi!",
     date: "2024-11-22",
     verified: true,
     helpful: 38,
@@ -1724,7 +1724,7 @@ export const reviews: Review[] = [
     userAvatar: "/images/users/anomynous.jpg",
     rating: 5,
     comment:
-      "Lisu Đen nâng cấp công nghệ tiên tiến. 3 tháng giảm 14kg, vợ tôi thay đổi hoàn toàn!",
+      "Lishou Đen nâng cấp công nghệ tiên tiến. 3 tháng giảm 14kg, vợ tôi thay đổi hoàn toàn!",
     date: "2024-11-12",
     verified: true,
     helpful: 36,
@@ -1844,7 +1844,7 @@ export const reviews: Review[] = [
     userAvatar: "/images/users/anomynous.jpg",
     rating: 5,
     comment:
-      "Lisu Đen nâng cấp đỉnh cao của giảm cân. 4 tháng giảm 16kg, hiệu quả thần tốc!",
+      "Lishou Đen nâng cấp đỉnh cao của giảm cân. 4 tháng giảm 16kg, hiệu quả thần tốc!",
     date: "2024-11-02",
     verified: true,
     helpful: 39,
