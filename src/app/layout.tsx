@@ -11,7 +11,7 @@ import { AddToCartProvider } from "@/context/AddToCartContext";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://dunglegiamcan.vn"),
+  metadataBase: new URL("https://dunglegiamcan.com"),
   title: {
     default: "Dung Lê Giảm Cân - Sản phẩm giảm cân từ Thái Lan",
     template: "%s | Dung Lê Giảm Cân",
@@ -42,14 +42,14 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "vi_VN",
-    url: "https://dunglegiamcan.vn",
+    url: "https://dunglegiamcan.com",
     siteName: "Dung Lê Giảm Cân",
     title: "Dung Lê Giảm Cân - Sản phẩm giảm cân từ Thái Lan",
     description:
       "Dung Lê Giảm Cân cung cấp các sản phẩm giảm cân an toàn, hiệu quả từ Thái Lan. Giảm cân không yoyo, không tăng cân lại.",
     images: [
       {
-        url: "/images/logo/logo.png",
+        url: "https://dunglegiamcan.com/images/logo/logo.png",
         width: 1200,
         height: 630,
         alt: "Dung Lê Giảm Cân Logo",
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
     title: "Dung Lê Giảm Cân - Sản phẩm giảm cân từ Thái Lan",
     description:
       "Dung Lê Giảm Cân cung cấp các sản phẩm giảm cân an toàn, hiệu quả từ Thái Lan. Giảm cân không yoyo, không tăng cân lại.",
-    images: ["/images/logo/logo.png"],
+    images: ["https://dunglegiamcan.com/images/logo/logo.png"],
   },
   robots: {
     index: true,

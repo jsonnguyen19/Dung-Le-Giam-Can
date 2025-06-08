@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/images/products/baschi-cam/baschi-cam.jpg",
+        url: "https://dunglegiamcan.com/images/products/baschi-cam/baschi-cam.jpg",
         width: 1200,
         height: 630,
         alt: "Sản phẩm giảm cân Dung Lê",
@@ -27,7 +27,9 @@ export const metadata: Metadata = {
     title: "Sản phẩm giảm cân an toàn | Dung Lê Giảm Cân",
     description:
       "Khám phá bộ sản phẩm giảm cân chính hãng từ Thái Lan. Hiệu quả nhanh chóng, an toàn, không tăng cân lại. Cam kết 100% sản phẩm chính hãng.",
-    images: ["/images/products/baschi-cam/baschi-cam.jpg"],
+    images: [
+      "https://dunglegiamcan.com/images/products/baschi-cam/baschi-cam.jpg",
+    ],
   },
 };
 

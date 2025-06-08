@@ -15,6 +15,7 @@ const nextConfig = {
         hostname: "**",
       },
     ],
+    domains: ["dunglegiamcan.com"],
   },
   experimental: {
     optimizeCss: true,

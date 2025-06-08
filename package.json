@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "validate-seo": "node scripts/validate-seo.js",
+    "check-images": "node scripts/check-og-images.js",
+    "rebuild": "sh scripts/rebuild.sh"
   },
   "dependencies": {
     "@formspree/react": "^3.0.0",

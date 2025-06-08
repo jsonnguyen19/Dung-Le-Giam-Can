@@ -16,6 +16,28 @@ export const metadata: Metadata = {
   title: "Dung Lê Giảm Cân - Sản phẩm giảm cân Thái Lan chính hãng",
   description:
     "Khám phá bộ sản phẩm giảm cân an toàn, hiệu quả từ Thái Lan. Cam kết không tăng cân lại, có chứng nhận an toàn.",
+  openGraph: {
+    title: "Dung Lê Giảm Cân - Sản phẩm giảm cân Thái Lan chính hãng",
+    description:
+      "Khám phá bộ sản phẩm giảm cân an toàn, hiệu quả từ Thái Lan. Cam kết không tăng cân lại, có chứng nhận an toàn.",
+    type: "website",
+    images: [
+      {
+        url: "https://dunglegiamcan.com/images/banners/banner-01.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Dung Lê Giảm Cân",
+      },
+    ],
+    siteName: "Dung Lê Giảm Cân",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Dung Lê Giảm Cân - Sản phẩm giảm cân Thái Lan chính hãng",
+    description:
+      "Khám phá bộ sản phẩm giảm cân an toàn, hiệu quả từ Thái Lan. Cam kết không tăng cân lại, có chứng nhận an toàn.",
+    images: ["https://dunglegiamcan.com/images/banners/banner-01.jpg"],
+  },
 };
 
 export default function HomePage() {

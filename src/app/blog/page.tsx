@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/images/blog/blog-01.jpg",
+        url: "https://dunglegiamcan.com/images/blog/blog-01.jpg",
         width: 1200,
         height: 630,
         alt: "Blog Dung Lê Giảm Cân",
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     title: "Blog - Chia sẻ kinh nghiệm giảm cân | Dung Lê Giảm Cân",
     description:
       "Chia sẻ kiến thức, mẹo và bí quyết giảm cân hiệu quả, an toàn. Cập nhật thông tin mới nhất về các phương pháp giảm cân khoa học.",
-    images: ["/images/blog/blog-01.jpg"],
+    images: ["https://dunglegiamcan.com/images/blog/blog-01.jpg"],
   },
 };
 

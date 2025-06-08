@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { BlogDetail } from "@/components/blog/BlogDetail";
 import { blogPosts } from "@/content/blogs";
+import { getAbsoluteUrl } from "@/lib/getAbsoluteUrl";
 
 interface Props {
   params: {
@@ -42,7 +43,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       tags: post.tags,
       images: [
         {
-          url: post.image,
+          url: getAbsoluteUrl(post.image),
           width: 1200,
           height: 630,
           alt: title,
@@ -54,7 +55,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       card: "summary_large_image",
       title,
       description,
-      images: [post.image],
+      images: [getAbsoluteUrl(post.image)],
     },
   };
 }
