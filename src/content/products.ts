@@ -55,7 +55,7 @@ export const products: Product[] = [
     name: "Baschi Đen - Viên Giảm Cân Cao Cấp",
     description:
       "Viên giảm cân Baschi Đen phiên bản nâng cấp, hiệu quả mạnh mẽ hơn cho việc giảm cân nhanh.",
-    price: 350000,
+    price: 220000,
     images: ["/images/products/baschi-den/baschi-den.jpg"],
     ingredients: [
       "Chitosan",
@@ -114,7 +114,7 @@ export const products: Product[] = [
     name: "Baschi Hồng - Viên Giảm Cân Cao Cấp",
     description:
       "Viên giảm cân Baschi Hồng với công thức đặc biệt, hiệu quả cao trong việc đốt cháy mỏ thừa.",
-    price: 320000,
+    price: 180000,
     images: ["/images/products/baschi-hong/baschi-hong.jpg"],
     ingredients: [
       "Red Grape Extract",
@@ -144,7 +144,7 @@ export const products: Product[] = [
     name: "Baschi Tím - Viên Giảm Cân Thảo Dược",
     description:
       "Viên giảm cân Baschi Tím từ chiết xuất thảo dược tự nhiên, an toàn cho sức khỏe.",
-    price: 300000,
+    price: 180000,
     images: ["/images/products/baschi-tim/baschi-tim.jpg"],
     ingredients: [
       "Purple Sweet Potato Extract",
@@ -173,7 +173,7 @@ export const products: Product[] = [
     name: "Cafe Sim Thái Lan - Cà Phê Giảm Cân",
     description:
       "Cà phê giảm cân từ Thái Lan với hương vị thơm ngon, giúp đốt cháy mỡ hiệu quả.",
-    price: 180000,
+    price: 220000,
     images: ["/images/products/cafe-sim-thai-lan/cafe-sim-thai-lan.jpg"],
     ingredients: [
       "Cà phê Arabica",
@@ -203,7 +203,7 @@ export const products: Product[] = [
     name: "HJ Detox Dấm Táo Rau Củ Quả",
     description:
       "Viên detox từ dấm táo và rau củ quả tự nhiên, giúp thanh lọc cơ thể và kiểm soát cholesterol.",
-    price: 220000,
+    price: 160000,
     images: ["/images/products/detox-cholesteron/detox-cholesteron.jpg"],
     ingredients: [
       "Dấm táo tự nhiên",
@@ -232,7 +232,7 @@ export const products: Product[] = [
     name: "Keto Slim - Viên Giảm Cân Ketogenic",
     description:
       "Viên giảm cân theo chế độ Keto, giúp cơ thể đốt cháy mỡ nhanh chóng và hiệu quả.",
-    price: 380000,
+    price: 250000,
     images: ["/images/products/keto-slim/keto-slim.jpg"],
     ingredients: ["BHB Salts", "MCT Oil", "Magnesium", "Calcium", "Sodium"],
     usage: "Uống 2 viên/ngày trước bữa ăn chính.",
@@ -256,7 +256,7 @@ export const products: Product[] = [
     name: "Lishou Xanh - Viên Giảm Cân Thảo Dược",
     description:
       "Viên giảm cân Lishou Xanh từ thảo dược tự nhiên, an toàn và hiệu quả lâu dài.",
-    price: 260000,
+    price: 200000,
     images: ["/images/products/lishou-xanh/lishou-xanh.jpg"],
     ingredients: [
       "Green Tea Extract",
@@ -285,7 +285,7 @@ export const products: Product[] = [
     name: "Lishou Đen - Viên Giảm Cân Cao Cấp",
     description:
       "Viên giảm cân Lishou Đen với công thức nâng cấp, hiệu quả mạnh mẽ cho mọi đối tượng.",
-    price: 290000,
+    price: 260000,
     images: ["/images/products/lishou-den/lishou-den.jpg"],
     ingredients: [
       "Black Bean Extract",
@@ -314,7 +314,7 @@ export const products: Product[] = [
     name: "Vi Nhật Thay Mỡ Siết Eo",
     description:
       "Sản phẩm giảm mỡ bụng và siết eo hiệu quả từ công nghệ Nhật Bản.",
-    price: 420000,
+    price: 130000,
     images: [
       "/images/products/vi-nhat-thay-mo-siet-eo/vi-nhat-thay-mo-siet-eo.jpg",
     ],
@@ -346,7 +346,7 @@ export const products: Product[] = [
     name: "VIP Body X7 - Viên Giảm Cân Cao Cấp",
     description:
       "Viên giảm cân VIP Body X7 với công thức 7 thành phần hoạt chất mạnh mẽ.",
-    price: 480000,
+    price: 230000,
     images: ["/images/products/vip-body-x7/vip-body-x7.jpg"],
     ingredients: [
       "Garcinia Cambogia",
@@ -378,7 +378,7 @@ export const products: Product[] = [
     name: "VIP PP 99 - Viên Giảm Cân Premium",
     description:
       "Viên giảm cân VIP PP 99 công thức độc quyền, hiệu quả 99% cho mọi thể trạng.",
-    price: 520000,
+    price: 280000,
     images: ["/images/products/vip-pp-99/vip-pp-99.jpg"],
     ingredients: [
       "White Kidney Bean",
@@ -409,7 +409,7 @@ export const products: Product[] = [
     name: "Wisdom - Viên Uống Thông Minh Giảm Cân",
     description:
       "Viên uống Wisdom kết hợp trí tuệ cổ đại và khoa học hiện đại cho việc giảm cân thông minh.",
-    price: 350000,
+    price: 230000,
     images: ["/images/products/wisdom/wisdom.jpg"],
     ingredients: [
       "Ginseng Extract",
