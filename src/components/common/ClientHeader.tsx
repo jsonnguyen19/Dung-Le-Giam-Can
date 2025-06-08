@@ -30,11 +30,25 @@ export const ClientHeader = ({ initialTotalItems = 0 }: ClientHeaderProps) => {
   const { isMobile } = useResponsive();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const [currentHash, setCurrentHash] = useState("");
   const { isAnimating, triggerAnimation } = useCartIconAnimation();
 
   // Wait for hydration
   useEffect(() => {
     setMounted(true);
+    // Set initial hash
+    setCurrentHash(window.location.hash);
+
+    // Listen for hash changes
+    const handleHashChange = () => {
+      setCurrentHash(window.location.hash);
+    };
+
+    window.addEventListener("hashchange", handleHashChange);
+
+    return () => {
+      window.removeEventListener("hashchange", handleHashChange);
+    };
   }, []);
 
   // Listen for cart changes and trigger animation
@@ -58,6 +72,7 @@ export const ClientHeader = ({ initialTotalItems = 0 }: ClientHeaderProps) => {
         // Clear hash from URL if it exists
         if (window.location.hash) {
           window.history.pushState({}, "", "/");
+          setCurrentHash(""); // Clear hash state
         }
       } else {
         // If on another page, navigate to homepage
@@ -75,6 +90,7 @@ export const ClientHeader = ({ initialTotalItems = 0 }: ClientHeaderProps) => {
           element.scrollIntoView({ behavior: "smooth" });
           // Cập nhật URL để hiển thị hash
           window.history.pushState({}, "", href);
+          setCurrentHash(href.substring(1)); // Update hash state
         }
       } else {
         // If on another page, navigate to homepage with hash
@@ -116,6 +132,22 @@ export const ClientHeader = ({ initialTotalItems = 0 }: ClientHeaderProps) => {
     handleNavClick(e, href);
   };
 
+  // Helper function to check if a navigation item is active
+  const isActiveNavItem = (href: string) => {
+    // For home page without hash
+    if (href === "/") {
+      return pathname === "/" && !currentHash;
+    }
+
+    // For hash routes like /#about, /#order
+    if (href.startsWith("/#")) {
+      return pathname === "/" && currentHash === href.substring(1);
+    }
+
+    // For other pages, check if current path starts with the href
+    return pathname.startsWith(href) && href !== "/";
+  };
+
   // Use initial value until hydrated to prevent layout shift
   const displayTotalItems = mounted ? totalItems : initialTotalItems;
 
@@ -127,7 +159,11 @@ export const ClientHeader = ({ initialTotalItems = 0 }: ClientHeaderProps) => {
           <Link
             key={item.name}
             href={item.href}
-            className="text-gray-700 hover:text-pink transition-colors"
+            className={`transition-colors ${
+              isActiveNavItem(item.href)
+                ? "text-pink font-medium"
+                : "text-gray-700 hover:text-pink"
+            }`}
             onClick={(e) => handleNavClick(e, item.href)}
           >
             {item.name}
@@ -249,7 +285,11 @@ export const ClientHeader = ({ initialTotalItems = 0 }: ClientHeaderProps) => {
                   <Link
                     key={item.name}
                     href={item.href}
-                    className="block text-gray-700 hover:text-pink transition-colors py-2 text-lg font-medium"
+                    className={`block transition-colors py-2 text-lg font-medium ${
+                      isActiveNavItem(item.href)
+                        ? "text-pink font-semibold"
+                        : "text-gray-700 hover:text-pink"
+                    }`}
                     onClick={(e) => handleMobileNavClick(e, item.href)}
                   >
                     {item.name}
