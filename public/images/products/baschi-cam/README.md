@@ -6,7 +6,7 @@ Baschi Cam là sản phẩm giảm cân chính hãng từ Thái Lan, được nh
 
 - Xuất xứ: Thái Lan
 - Quy cách: 30 viên/hộp
-- Giá: 250.000đ
+- Giá: 200.000đ
 
 ## Thành phần chính
 

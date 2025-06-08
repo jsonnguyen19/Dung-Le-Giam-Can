@@ -25,7 +25,7 @@ export const products: Product[] = [
     name: "Baschi Cam - Viên Giảm Cân Thái Lan",
     description:
       "Viên giảm cân Baschi Cam từ Thái Lan, giúp giảm cân an toàn và hiệu quả với 30 viên/hộp.",
-    price: 250000,
+    price: 200000,
     images: ["/images/products/baschi-cam/baschi-cam.jpg"],
     ingredients: [
       "Chiết xuất lá sen",
