@@ -4,7 +4,7 @@
 
 - **Tên sản phẩm**: Bashi Cam Lô
 - **Số lượng**: 30 viên/hộp
-- **Giá**: 280.000 VNĐ
+- **Giá**: 250.000 VNĐ
 
 ## Thành phần chính
 

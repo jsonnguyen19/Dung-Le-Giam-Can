@@ -377,7 +377,7 @@ export const products: Product[] = [
     slug: "vip-pp-99",
     name: "Viên uống giảm cân Thailand Yanhee",
     description:
-      "Viên giảm cân VIP PP 99 công thức độc quyền, hiệu quả 99% cho mọi thể trạng.",
+      "Viên uống giảm cân Thailand Yanhee công thức độc quyền, hiệu quả 99% cho mọi thể trạng.",
     price: 280000,
     images: ["/images/products/vip-pp-99/vip-pp-99.jpg"],
     ingredients: [

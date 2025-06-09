@@ -1,6 +1,6 @@
-# Vi Nhật Thay Mỡ Siết Eo
+# Viên detox thảy mỡ siết eo 2 vỉ
 
-Vi Nhật Thay Mỡ Siết Eo là sản phẩm giảm cân cao cấp với công nghệ Nhật Bản, tập trung vào giảm mỡ bụng và cải thiện vòng eo.
+Viên detox thảy mỡ siết eo 2 vỉ là sản phẩm giảm cân cao cấp với công nghệ Nhật Bản, tập trung vào giảm mỡ bụng và cải thiện vòng eo.
 
 ## Thông tin sản phẩm
 

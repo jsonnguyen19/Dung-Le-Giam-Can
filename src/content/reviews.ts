@@ -599,7 +599,7 @@ export const reviews: Review[] = [
     helpful: 32,
   },
 
-  // Reviews cho VIP PP 99 (product id: "13")
+  // Reviews cho Viên uống giảm cân Thailand Yanhee (product id: "13")
   {
     id: "r49",
     productId: "13",
@@ -607,7 +607,7 @@ export const reviews: Review[] = [
     userAvatar: "/images/users/anomynous.jpg",
     rating: 5,
     comment:
-      "VIP PP 99 hiệu quả 99% thật sự không phải quảng cáo! 3 tháng giảm 14kg, không thể tin nổi.",
+      "Viên uống giảm cân Thailand Yanhee hiệu quả 99% thật sự không phải quảng cáo! 3 tháng giảm 14kg, không thể tin nổi.",
     date: "2024-12-10",
     verified: true,
     helpful: 29,
@@ -631,7 +631,7 @@ export const reviews: Review[] = [
     userAvatar: "/images/users/anomynous.jpg",
     rating: 5,
     comment:
-      "Sản phẩm premium thật sự! 2 tháng giảm 10kg, cơ thể khỏe mạnh hơn hẳn.",
+      "Viên uống giảm cân Thailand Yanhee chất lượng thật sự! 2 tháng giảm 10kg, cơ thể khỏe mạnh hơn hẳn.",
     date: "2024-12-04",
     verified: true,
     helpful: 24,
@@ -715,7 +715,7 @@ export const reviews: Review[] = [
     helpful: 10,
   },
 
-  // Reviews cho Wisdom (product id: "14")
+  // Reviews cho Viên uống tăng cân Indo (product id: "14")
   {
     id: "r58",
     productId: "14",
@@ -723,7 +723,7 @@ export const reviews: Review[] = [
     userAvatar: "/images/users/anomynous.jpg",
     rating: 5,
     comment:
-      "Wisdom thông minh thật! Vừa giảm cân vừa tăng cường trí nhớ. Công việc hiệu quả hơn.",
+      "Sản phẩm tăng cân Indo rất hiệu quả! Sau 1 tháng tôi đã tăng được 3kg và cảm thấy khỏe mạnh hơn nhiều.",
     date: "2024-12-06",
     verified: true,
     helpful: 21,
@@ -735,7 +735,7 @@ export const reviews: Review[] = [
     userAvatar: "/images/users/anomynous.jpg",
     rating: 4,
     comment:
-      "Sản phẩm độc đáo, vừa giảm cân vừa bổ não. Thích hợp cho dân văn phòng như tôi.",
+      "Tôi đã cố gắng tăng cân nhiều năm mà không thành công. Nhờ viên uống tăng cân Indo này, tôi đã cải thiện vóc dáng rõ rệt.",
     date: "2024-12-03",
     verified: true,
     helpful: 16,

@@ -52,7 +52,12 @@ const categories = [
     bestFor: "Người muốn kết quả nhanh, sẵn sàng đầu tư",
     icon: "👑",
     color: "from-purple-500 to-indigo-600",
-    products: ["VIP Body X7", "VIP PP 99", "Keto Slim", "Wisdom"],
+    products: [
+      "VIP Body X7",
+      "Viên uống giảm cân Thailand Yanhee",
+      "Keto Slim",
+      "Viên uống tăng cân Indo",
+    ],
   },
 ];
 

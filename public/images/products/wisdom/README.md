@@ -1,12 +1,12 @@
-# Wisdom - Viên Uống Thông Minh Giảm Cân
+# Viên uống tăng cân Indo
 
-Wisdom là sản phẩm giảm cân cao cấp kết hợp trí tuệ cổ đại và khoa học hiện đại, giúp giảm cân thông minh đồng thời tăng cường trí não.
+Viên uống tăng cân Indo là sản phẩm tăng cân cao cấp từ Indonesia kết hợp các dưỡng chất cần thiết, giúp tăng cân nhanh chóng, an toàn và hiệu quả.
 
 ## Thông tin sản phẩm
 
-- Xuất xứ: Thái Lan
+- Xuất xứ: Indonesia
 - Quy cách: Hộp cao cấp
-- Giá: 350.000đ
+- Giá: 230.000đ
 
 ## Thành phần chính
 
@@ -18,18 +18,18 @@ Wisdom là sản phẩm giảm cân cao cấp kết hợp trí tuệ cổ đại
 
 ## Công dụng
 
-- Giảm cân thông minh
-- Tăng cường trí nhớ
-- Cải thiện tuần hoàn
-- Chống stress
-- Tăng cường trao đổi chất
+- Tăng cân nhanh chóng
+- Tăng cường sức khỏe
+- Tăng cơ, giảm mỡ
+- Cải thiện vóc dáng
+- Tăng cường năng lượng
 
 ## Đối tượng sử dụng
 
-- Người làm việc trí óc
-- Người cần tập trung cao
-- Người muốn giảm cân khoa học
-- Người thường xuyên stress
+- Người gầy muốn tăng cân
+- Người khó hấp thu thức ăn
+- Người cần tăng cường cơ bắp
+- Người muốn cải thiện vóc dáng
 
 ## Cách sử dụng
 
@@ -40,23 +40,23 @@ Wisdom là sản phẩm giảm cân cao cấp kết hợp trí tuệ cổ đại
 
 ## Hiệu quả
 
-- Giảm 3-5kg/tháng
-- Cải thiện trí nhớ rõ rệt
-- Tăng khả năng tập trung
-- Giảm stress hiệu quả
+- Tăng 3-5kg/tháng
+- Cải thiện thể trạng
+- Tăng cường sức khỏe
+- Phát triển cơ bắp hiệu quả
 
 ## Lưu ý khi sử dụng
 
-- Không dùng cho phụ nữ có thai và cho con bú
-- Không dùng cho người có bệnh tim mạch
-- Không sử dụng cùng các thuốc an thần
+- Không dùng cho người bị béo phì
+- Không dùng cho người có bệnh gan, thận nặng
+- Không sử dụng quá liều lượng quy định
 - Ngưng sử dụng nếu có dấu hiệu dị ứng
 - Bảo quản nơi khô ráo, thoáng mát
 
 ## Ưu điểm nổi bật
 
-- Kết hợp giảm cân và bổ não
-- Công thức độc đáo thông minh
+- Tăng cân nhanh chóng
+- Công thức đặc biệt của Indonesia
 - An toàn cho sức khỏe
-- Không gây buồn ngủ
-- Phù hợp người làm việc căng thẳng
+- Không gây mệt mỏi
+- Phù hợp mọi đối tượng cần tăng cân

@@ -6,7 +6,7 @@ Bashi Cam Lọ là phiên bản đặc biệt với hương vị cam thơm ngon,
 
 - Xuất xứ: Thái Lan
 - Quy cách: Lọ tiện dụng
-- Giá: 280.000đ
+- Giá: 250.000đ
 
 ## Thành phần chính
 

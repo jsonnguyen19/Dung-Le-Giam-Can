@@ -1,12 +1,12 @@
-# VIP PP 99 - Viên Giảm Cân Premium
+# Viên uống giảm cân Thailand Yanhee
 
-VIP PP 99 là sản phẩm giảm cân cao cấp với công thức độc quyền, cam kết hiệu quả 99% cho mọi thể trạng.
+Viên uống giảm cân Thailand Yanhee là sản phẩm giảm cân cao cấp với công thức độc quyền từ Thái Lan, cam kết hiệu quả 99% cho mọi thể trạng.
 
 ## Thông tin sản phẩm
 
 - Xuất xứ: Thái Lan
 - Quy cách: Hộp cao cấp
-- Giá: 520.000đ
+- Giá: 280.000đ
 - Hiệu quả: 99%
 
 ## Thành phần chính

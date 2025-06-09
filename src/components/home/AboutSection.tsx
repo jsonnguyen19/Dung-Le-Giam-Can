@@ -71,7 +71,7 @@ export const AboutSection = () => {
             <div className="relative h-full rounded-lg overflow-hidden">
               <Image
                 src="/images/aboutme/wisdom.jpg"
-                alt="Sản phẩm Wisdom"
+                alt="Viên uống tăng cân Indo"
                 fill
                 className="object-cover"
               />
