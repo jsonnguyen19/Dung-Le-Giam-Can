@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "https://dunglegiamcan.com/images/logo/logo.png",
+        url: "https://dunglegiamcan.com/images/logo/logo.jpg",
         width: 1200,
         height: 630,
         alt: "Liên hệ Dung Lê Giảm Cân",
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     title: "Liên hệ - Tư vấn giảm cân miễn phí | Dung Lê Giảm Cân",
     description:
       "Liên hệ với chúng tôi để được tư vấn miễn phí về sản phẩm giảm cân. Đội ngũ tư vấn chuyên nghiệp, nhiệt tình sẽ giúp bạn chọn được sản phẩm phù hợp nhất.",
-    images: ["https://dunglegiamcan.com/images/logo/logo.png"],
+    images: ["https://dunglegiamcan.com/images/logo/logo.jpg"],
   },
 };
 

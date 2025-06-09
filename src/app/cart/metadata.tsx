@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "https://dunglegiamcan.com/images/logo/logo.png",
+        url: "https://dunglegiamcan.com/images/logo/logo.jpg",
         width: 1200,
         height: 630,
         alt: "Giỏ hàng Dung Lê Giảm Cân",
@@ -24,6 +24,6 @@ export const metadata: Metadata = {
     title: "Giỏ hàng | Dung Lê Giảm Cân",
     description:
       "Xem sản phẩm trong giỏ hàng của bạn và tiến hành thanh toán. Mua ngay để nhận ưu đãi đặc biệt.",
-    images: ["https://dunglegiamcan.com/images/logo/logo.png"],
+    images: ["https://dunglegiamcan.com/images/logo/logo.jpg"],
   },
 };

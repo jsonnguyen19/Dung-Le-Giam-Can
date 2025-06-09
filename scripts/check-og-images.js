@@ -8,7 +8,7 @@ const path = require("path");
 
 // Paths to check
 const paths = [
-  "/images/logo/logo.png",
+  "/images/logo/logo.jpg",
   "/images/blog/blog-01.jpg",
   "/images/products/baschi-cam/baschi-cam.jpg",
   "/images/banners/banner-01.jpg",
