@@ -85,7 +85,7 @@ export const products: Product[] = [
     name: "Baschi Cam Lọ - Viên Giảm Cân Vị Cam Lọ",
     description:
       "Viên giảm cân Baschi với hương vị cam lọ thơm ngon, dễ uống, giúp giảm cân hiệu quả.",
-    price: 280000,
+    price: 250000,
     images: ["/images/products/baschi-cam-lo/baschi-cam-lo.jpg"],
     ingredients: [
       "Chiết xuất cam lọ",
@@ -311,7 +311,7 @@ export const products: Product[] = [
   {
     id: "11",
     slug: "vi-nhat-thay-mo-siet-eo",
-    name: "Vi Nhật Thay Mỡ Siết Eo",
+    name: "Viên detox thảy mỡ siết eo 2 vỉ",
     description:
       "Sản phẩm giảm mỡ bụng và siết eo hiệu quả từ công nghệ Nhật Bản.",
     price: 130000,
@@ -375,7 +375,7 @@ export const products: Product[] = [
   {
     id: "13",
     slug: "vip-pp-99",
-    name: "VIP PP 99 - Viên Giảm Cân Premium",
+    name: "Viên uống giảm cân Thailand Yanhee",
     description:
       "Viên giảm cân VIP PP 99 công thức độc quyền, hiệu quả 99% cho mọi thể trạng.",
     price: 280000,
@@ -406,9 +406,9 @@ export const products: Product[] = [
   {
     id: "14",
     slug: "wisdom",
-    name: "Wisdom - Viên Uống Thông Minh Giảm Cân",
+    name: "Viên uống tăng cân Indo",
     description:
-      "Viên uống Wisdom kết hợp trí tuệ cổ đại và khoa học hiện đại cho việc giảm cân thông minh.",
+      "Viên uống tăng cân từ Indonesia giúp tăng cân an toàn, hiệu quả và nhanh chóng.",
     price: 230000,
     images: ["/images/products/wisdom/wisdom.jpg"],
     ingredients: [
@@ -420,12 +420,12 @@ export const products: Product[] = [
     ],
     usage: "Uống 1 viên/ngày vào buổi sáng sau ăn.",
     benefits: [
-      "Giảm cân thông minh",
-      "Tăng cường trí nhớ",
-      "Cải thiện tuần hoàn",
-      "Chống stress",
+      "Tăng cân nhanh chóng",
+      "Tăng cường sức khỏe",
+      "Tăng cơ, giảm mỡ",
+      "Cải thiện vóc dáng",
     ],
-    category: "weight-loss",
+    category: "supplement",
     soldCount: 1150,
     rating: 4.7,
     reviewCount: 78,
